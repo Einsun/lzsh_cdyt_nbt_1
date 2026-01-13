@@ -1,0 +1,92 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\workplace\\shengfashe\\csharp\\nbtedu\\AeDataService\\AeDataService.csproj": {}
+  },
+  "projects": {
+    "D:\\workplace\\shengfashe\\csharp\\nbtedu\\AeDataService\\AeDataService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\workplace\\shengfashe\\csharp\\nbtedu\\AeDataService\\AeDataService.csproj",
+        "projectName": "AeDataService",
+        "projectPath": "D:\\workplace\\shengfashe\\csharp\\nbtedu\\AeDataService\\AeDataService.csproj",
+        "packagesPath": "C:\\Users\\Urano\\.nuget\\packages\\",
+        "outputPath": "D:\\workplace\\shengfashe\\csharp\\nbtedu\\AeDataService\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Urano\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "MQTTnet": {
+              "target": "Package",
+              "version": "[4.3.3.952, )"
+            },
+            "Microsoft.Extensions.Hosting.WindowsServices": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.3.4, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Serilog.Extensions.Logging": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Serilog.Sinks.File": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

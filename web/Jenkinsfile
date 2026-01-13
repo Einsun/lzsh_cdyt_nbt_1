@@ -1,0 +1,125 @@
+#!groovy
+
+pipeline {
+    agent any
+
+    environment {
+        PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin"
+        ding_robot_token = credentials('sinuo-dingding-robot-token')
+        _WEB_SITE_URL = _getWebSiteURL()
+    }
+
+    options {
+        disableConcurrentBuilds()
+        timestamps()
+        timeout(time: 15, unit: 'MINUTES')
+        buildDiscarder(
+            logRotator(numToKeepStr: '20')
+        )
+    }
+
+    stages {
+        stage('debug') {
+            steps {
+                script {
+                    sh "printenv"
+                }
+            }
+        }
+
+        /*
+        stage('deploy develop') {
+            when {
+                beforeAgent true
+                branch 'develop'
+            }
+            steps {
+                echo 'dry run'
+                sshPublisher(
+                  publishers: [
+                    sshPublisherDesc(
+                      configName: 'sinuo-test-fe',
+                      transfers: [
+                        sshTransfer(
+                        cleanRemote: false,
+                        excludes: '',
+                        execCommand: """
+                          cd /data/www/clients/client2/web53/home/qasinuoxiaofang/sinuoxiaofang_web;
+                          && git pull;
+                          && npm install
+                          && npm run build:testing;
+                          && rm -rf /data/www/clients/client2/web53/web/*;
+                          && cp -rp dist/* /data/www/clients/client2/web53/web/;""",
+                        execTimeout: 520000,
+                        flatten: false,
+                        makeEmptyDirs: false,
+                        noDefaultExcludes: false,
+                        patternSeparator: '[, ]+',
+                        remoteDirectory: '',
+                        remoteDirectorySDF: false,
+                        removePrefix: '',
+                        sourceFiles: '')
+                      ],
+                      usePromotionTimestamp: false,
+                      useWorkspaceInPromotion: false,
+                      verbose: true
+                    )
+                  ]
+                )
+            }
+        }
+        */
+
+        stage('deploy master') {
+            when {
+                beforeAgent true
+                branch 'master'
+            }
+            steps {
+                sshPublisher(
+                  publishers: [
+                    sshPublisherDesc(
+                      configName: 'sinuo-live-aliyun',
+                      transfers: [
+                          sshTransfer(
+                            cleanRemote: false,
+                            excludes: '',
+                            execCommand: '''cd /root/sinuoxiaofang_management && git checkout master && git pull && npm install && npm run build && rm -rf /var/www/management.ifireservice.com/* && cp -r dist/* /var/www/management.ifireservice.com/''',
+                            execTimeout: 520000,
+                            flatten: false,
+                            makeEmptyDirs: false,
+                            noDefaultExcludes: false,
+                            patternSeparator: '[, ]+',
+                            remoteDirectory: '',
+                            remoteDirectorySDF: false,
+                            removePrefix: '',
+                            sourceFiles: '')
+                      ],
+                      usePromotionTimestamp: false,
+                      useWorkspaceInPromotion: false,
+                      verbose: true
+                    )
+                  ]
+                )
+            }
+        }
+    }
+
+    post {
+        always {
+           script{
+               if (["ABORTED", "FAILURE", "UNSTABLE"].contains(currentBuild.currentResult) ){
+                   dingTalk accessToken: "${env.ding_robot_token}", imageUrl: '', jenkinsUrl: '', message: '构建失败', notifyPeople: ''
+                   slackSend channel: "#机器人", message: "Build failure: ${env.JOB_NAME} -- No: ${env.BUILD_NUMBER}, please check detail in email!"
+               } else {
+                   dingTalk accessToken: "${env.ding_robot_token}", imageUrl: '', jenkinsUrl: '', message: '构建成功', notifyPeople: ''
+                   slackSend channel: "#机器人", message: "Build Success: ${env.JOB_NAME} -- Build No: ${env.BUILD_NUMBER}, please check on ${env._WEB_SITE_URL}"
+               }
+           }
+       }
+    }
+}
+
+def _getWebSiteURL() {
+    return "${env.BRANCH_NAME}" == 'master' ? 'http://management.ifireservice.com/' : 'http://management.sinuoxiaofang.osvlabs.com'
+}

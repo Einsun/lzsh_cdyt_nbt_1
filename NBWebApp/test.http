@@ -1,0 +1,10 @@
+
+GET http://127.0.0.1:5000/api/SensorDatas/ProdectLine?productlineid=1 HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsIm5iZiI6MTcwMjc5NDAzNCwiZXhwIjoxNzAyODgwNDM0LCJpc3MiOiJXZWJBcHBJc3N1ZXIiLCJhdWQiOiJXZWJBcHBBdWRpZW5jZSJ9.aZSo-Pwbdw8bgfyY-MJGNt6AVK2wovqQca9_jU03_NE
+
+###
+POST http://127.0.0.1:5000/api/Devices
+Content-Type: application/json
+
+{"id":30,"name":"B-502-TT01","productLineId":1,"type":1,"commDeviceId":9,"address":1,"channel":0,"pos":3,"alarmRuleId":1,"gatherRuleId":0,"maxValue":200,"minValue":0,"state":0,"signalTypeId":6,"samping":16,"unit":"¡æ"}

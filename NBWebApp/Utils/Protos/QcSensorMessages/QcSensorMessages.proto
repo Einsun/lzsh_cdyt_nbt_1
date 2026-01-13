@@ -1,0 +1,88 @@
+syntax = "proto3";
+
+option java_package = "com.qc.sensormessages";
+option go_package = ".;SensorMessages";
+
+message AeLevelConfig {
+   bool ae_level_enable = 1;
+   string ae_level_strength = 2; // 强度设置 json格式
+   string ae_level_activity = 3; // 活度设置 json格式
+   uint32 ae_level_cal_time = 4; // 评级统计时间，单位为秒
+   uint32 ae_level_strength_report_type = 5; // 实时强度上报类型 0：不上报 1：上报1级强度 2：上报2级强度 3：上报3级强度
+   uint32 ae_level_strength_report_interval = 6; // 实时强度上报最小间隔 秒为单位
+}
+
+message AeTimingConfig {
+   bool ae_timing_enable = 1;
+   uint32 ae_timing_type = 2; // 定时采集类型
+   uint32 ae_timing_length = 3; // 定时采集长度
+   uint32 ae_timing_sleep = 4; // 定时采集休眠时间
+}
+
+message AeWaveData {
+   uint32 ae_wave_end = 1; // 波形结束标志
+   bytes ae_wave_data = 2;
+}
+
+message AeSensorData{
+   uint32 ae_measure_speed = 98; // 采样速度
+   uint32 ae_gain_value = 99; // 前放放大倍数
+   double ae_enlarge_value = 100; // 系统放大倍数
+   double ae_amp = 101; // 幅度
+   double ae_power = 102; // 能量
+   double ae_asl = 103; // 平均值
+   double ae_rms = 104; // 有效值
+   uint32 ae_ringing_num = 105; // 振铃计数
+   uint32 ae_rising_num = 106; // 上升计数
+   uint32 ae_rising_time = 107; // 上升时间
+   uint32 ae_durning_time = 108; // 持续时间
+   uint32 ae_arriving_sec = 109; // 到达时间秒数
+   uint32 ae_arriving_ns = 110; // 到达时间纳秒数
+   uint32 ae_frame_num = 111; // 数据帧序列号
+   oneof msg {
+      AeWaveData aeWaveData = 1; // 波形数据
+   }
+}
+
+message AeMeasureConfig{
+   double ae_threshold = 1; // 门限
+   uint32 ae_measure_speed = 2; // 采集速率
+   uint32 ae_measure_mode = 3; // 采集模式
+   uint32 ae_eet = 4; // 波形截止时间
+   uint32 ae_hdt = 5; // 波形定义时间
+   uint32 ae_hlt = 6; // 波形闭锁时间
+   uint32 ae_measure_length = 7; // 采样长度
+   uint32 ae_measure_times = 8; // 采样次数
+   uint32 ae_measure_interval = 9; // 采样间隔
+   bool ae_para_enable = 10; // 参数发送使能
+   bool ae_wave_enable = 11; // 波形发送使能
+   uint32 ae_system_time = 12; // 系统时间
+   bool ae_measure_state = 13; // 采集状态
+}
+
+message AeSensorLevelData {
+   uint32 ae_level_data_type = 200; // 评级数据类型 1:强度报警输出 2:统计数据输出
+   uint32 ae_level_strength = 201; // 强度等级
+   uint32 ae_level_activity = 202; // 活度等级
+   uint32 ae_level_synthesis = 203; // 综合等级
+   string ae_level_strength_data = 204; // 强度数据
+   uint32 ae_level_activity_data = 205; // 活度数据
+   uint32 ae_level_report_cal_time = 206; // 评级统计时间
+   uint32 ae_level_report_end_time = 207; // 评级统计结束时间
+}
+
+message SystemFwUpdate {
+   uint32 update_state = 1; // 升级状态 0:未知 1:服务器下发升级命令 2:设备升级中 3:升级成功，设备即将重新启动 4:升级失败
+   string update_fw_path = 2; // 固件路径
+   string update_fw_md5sum = 3; // 固件MD5值
+   string update_password = 4; // 升级密码
+   string update_error_reason = 5; // 升级失败理由
+}
+
+message IotDeviceState {
+   uint32 cmd = 1; // 0: 获取状态 1: 启动传输 2: 停止传输 3: 反馈状态
+   uint32 lora_complete = 2; // lora专用，反馈lora已发送完成
+   uint32 para_package_count = 3; // IOT参数数据包数量
+   uint32 wave_package_count = 4; // IOT波形数据包数量
+   uint32 level_package_count = 5; // IOT评级数据包数量
+}

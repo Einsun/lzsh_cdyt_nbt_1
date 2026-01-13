@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55 (78076) - https://sketchapp.com -->
+    <title>icon_select</title>
+    <desc>Created with Sketch.</desc>
+    <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="0-1登录页面" transform="translate(-740.000000, -612.000000)">
+            <g id="编组-4" transform="translate(690.000000, 382.000000)">
+                <g id="编组-7" transform="translate(50.000000, 230.000000)">
+                    <rect id="矩形" stroke="#05659F" stroke-width="2" fill-opacity="0.5" fill="#05659F" x="1" y="1" width="16" height="16"></rect>
+                    <path d="M13.7992833,6.29204158 L7.92837994,12.7782529 C7.794571,12.9260746 7.61926151,13 7.44395203,13 C7.26864254,13 7.09335942,12.9260746 6.95952412,12.7782529 L4.20071341,9.730534 C3.93309553,9.43486152 3.93309553,8.95591928 4.20071341,8.6602468 C4.46833128,8.36460344 4.9018986,8.36460344 5.16954284,8.6602468 L7.443952,11.1728076 L12.8304802,5.22175436 C13.0980981,4.92608188 13.5316654,4.92608188 13.7993096,5.22175436 C14.0669012,5.51739772 14.0669012,5.99636908 13.7992833,6.29204158 Z" id="路径" fill="#65E2F5"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

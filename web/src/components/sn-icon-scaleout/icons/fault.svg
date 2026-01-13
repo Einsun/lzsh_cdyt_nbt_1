@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55 (78076) - https://sketchapp.com -->
+    <title>icon_fault</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#DDA255" offset="0%"></stop>
+            <stop stop-color="#EF8C3D" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dashboard" transform="translate(-261.000000, -262.000000)" fill="url(#linearGradient-1)" fill-rule="nonzero">
+            <g id="编组-9" transform="translate(30.000000, 113.000000)">
+                <g id="编组-8备份-2" transform="translate(231.000000, 88.000000)">
+                    <g id="guzhangzhuangtai" transform="translate(0.000000, 61.000000)">
+                        <path d="M8,0 C3.584,0 0,3.584 0,8 C0,12.416 3.584,16 8,16 C12.416,16 16,12.416 16,8 C16,3.584 12.416,0 8,0 Z M8,12.8 C7.544,12.8 7.184,12.432 7.184,11.984 C7.184,11.528 7.552,11.168 8,11.168 C8.456,11.168 8.816,11.536 8.816,11.984 C8.816,12.432 8.456,12.8 8,12.8 Z M8.888,3.672 L8.72,9.496 C8.712,9.8 8.4,10.04 8.032,10.04 L7.904,10.04 C7.536,10.04 7.224,9.8 7.216,9.496 L7.04,3.672 C7.024,3.208 7.4,2.816 7.88,2.816 L8.048,2.816 C8.528,2.816 8.904,3.208 8.888,3.672 Z" id="形状"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

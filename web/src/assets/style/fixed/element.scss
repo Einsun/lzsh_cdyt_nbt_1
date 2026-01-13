@@ -1,0 +1,163 @@
+// element 样式补丁
+.el-card {
+  &.is-always-shadow {
+    box-shadow: 0 0 8px 0 rgba(232,237,250,.6), 0 2px 4px 0 rgba(232,237,250,.5);
+  }
+  &.is-hover-shadow {
+    &:hover {
+      box-shadow: 0 0 8px 0 rgba(232,237,250,.6), 0 2px 4px 0 rgba(232,237,250,.5);
+    }
+  }
+}
+
+.el-menu--horizontal {
+  border-bottom: none !important;
+}
+
+.el-tabs__item:focus.is-active.is-focus:not(:active) {
+  box-shadow: none !important;
+}
+//date-picker
+.el-date-picker {
+  background: rgba(15, 36, 67, 1) !important;
+  color: rgba(101, 226, 245, 1) !important;
+  border-radius: 0 !important;
+  opacity: 0.9 !important;
+  border: 1px solid rgba(101, 226, 245, 0.5) !important;
+  margin: 0 !important;
+
+  .el-picker-panel__body-wrapper {
+    .el-picker-panel__icon-btn, .el-date-picker__header-label {
+      color: rgba(101, 226, 245, 1) !important;
+      font-size: 16px !important;
+    }
+
+    .el-date-table {
+      th {
+        color: rgba(101, 226, 245, 1) !important;
+        border-bottom: 1px solid rgba(101, 226, 245, 1) !important;
+      }
+
+      td {
+        div {
+          height: 28px !important;
+
+          span {
+            height: 28px !important;
+            width: 28px !important;
+            line-height: 28px !important;
+          }
+        }
+      }
+
+      .current {
+        span {
+          background-color: rgba(16, 86, 117, 0.8) !important;
+        }
+      }
+.prev-month,.next-month{
+  span{
+    color:rgba(63,190,202,0.5);
+  }
+}
+      .today {
+        span {
+          color: rgba(101, 226, 245, 1) !important;
+        }
+      }
+    }
+  }
+}
+.el-popper{
+  margin:0 !important;
+  .popper__arrow{
+    display: none !important;
+  }
+}
+// el-loading-mask z-index 需大于dialog
+.el-loading-mask{
+  //dialog 为2001
+  z-index: 3000 !important;
+}
+
+// el-select-dropdown
+.el-select-dropdown{
+  border: none !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  .el-select-dropdown__list{
+    box-sizing: border-box !important;
+    border: 1px solid rgba(101, 226, 245, 0.5) !important;
+    border-top-color: transparent !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    .el-select_dropdown__item__reset{
+        height: 42px;
+        line-height: 42px;
+        -webkit-appearance: none;
+        box-sizing: border-box;
+        font-size: 12px;
+        padding-left: 5px;
+        color: $color-secondary;
+        background-color: #011836;
+        &:focus, &:not(.is-disabled):hover,&:hover,&.hover {
+          background:rgba(16,86,117,0.8) !important;
+          color:rgba(101,226,245,1) !important;
+        }
+      }
+    .popper__arrow{
+      display: none;
+    }
+  }
+  .el-select-dropdown__empty{
+    border: 1px solid darken($color-secondary, 30%) !important;
+    line-height: 22px;
+  }
+  &.is-multiple .el-select_dropdown__item__reset{
+    @extend .flex-center-cross;
+    &::before{
+      box-sizing: border-box;
+      content: "";
+      width: 16px;
+      height: 16px;
+      border-radius:1px;
+      border:1px solid rgba(101,226,245,1);
+      display: inline-flex;
+      margin: 0 12px 0 16px;
+    }
+    &.selected{
+      font-weight:400;
+      color: $color-secondary !important;
+      background-color: #011836 !important;
+      &::after{
+        // 覆盖element原有样式
+        content: "" !important;
+      }
+      &::before{
+        // 使用base64 一是为了解决目录的纯净性
+        // 二是方便不去修改url调用资源的相关问题。scss在哪里被引用就会认定某目录寻找资源，或放public目录，而图标目前都是就近放置
+        $icon-selected-base64:'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDU1ICg3ODA3NikgLSBodHRwczovL3NrZXRjaGFwcC5jb20gLS0+CiAgICA8dGl0bGU+aWNvbl9jaG9vc2U8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZyBpZD0i6aG16Z2iMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IjUtMS006Ziy54Gr5beh5qOAX+e8lui+keW3oeajgOeCueS/oeaBryIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTY2NC4wMDAwMDAsIC03MTcuMDAwMDAwKSI+CiAgICAgICAgICAgIDxnIGlkPSLnvJbnu4QtMTkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY0My4wMDAwMDAsIDY1Ny4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSLnvJbnu4QtNyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjEuMDAwMDAwLCA2MC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICA8cmVjdCBpZD0i55+p5b2iIiBzdHJva2U9IiM2NUUyRjUiIHg9IjAuNSIgeT0iMC41IiB3aWR0aD0iMTUiIGhlaWdodD0iMTUiIHJ4PSIxIj48L3JlY3Q+CiAgICAgICAgICAgICAgICAgICAgPGcgaWQ9Imh0bWFsNWljb24yMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMy4wMDAwMDAsIDQuMDAwMDAwKSIgZmlsbD0iIzY1RTJGNSIgZmlsbC1ydWxlPSJub256ZXJvIj4KICAgICAgICAgICAgICAgICAgICAgICAgPHBvbHlnb24gaWQ9Iui3r+W+hCIgcG9pbnRzPSIzLjE3NTMwNzY4IDYuMzE4NTU3NTkgMC43OTQzMDAwNDMgMy44MTk0NTE5OSAwLjAwMDYzMDgzNTU1NiA0LjY1MjQ4NzE5IDMuMTc1MzA3NjggNy45ODQ2MjggOS45NzgyMDc1MSAwLjg0NDMxNzEyNSA5LjE4NDUzODI5IDAuMDExMjgxOTI1Ij48L3BvbHlnb24+CiAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=';
+        border:none;
+        background:url($icon-selected-base64) no-repeat;
+        background-size: contain;
+        background-position: center;
+      }
+    }
+  }
+}
+
+// auto complate
+.el-autocomplete-suggestion.el-popper{
+ @extend .el-select-dropdown;
+  li{
+    color: #aaa;
+    &:hover{
+      background: transparent;
+    }
+    &.highlighted{
+      background: rgba(13, 39, 72, 0.9);
+      color:#ccc;
+    }
+  }
+}

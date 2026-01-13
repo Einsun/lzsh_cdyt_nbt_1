@@ -1,0 +1,31 @@
+import { createAPI } from '../requestUtils';
+
+const SignalTypes = {
+  // 设备的增删改查
+  request (opts = {}) {
+    const { method = 'GET' } = opts
+    const paramsKey = method === 'GET' ? 'params' : 'data'
+    const {
+      [paramsKey]: {
+        id = false,
+        name = '',
+        measureConfig = null,
+        levelConfig = null,
+        timingConfig = null,
+      } = {}
+    } = opts
+    return createAPI(
+      {
+        url: `SignalTypes${id ? '/' + id : ''}`,
+        method,
+        [paramsKey]: {
+          name,
+          measureConfig,
+          levelConfig,
+          timingConfig,
+        }
+      }
+    )
+  },
+}
+export default SignalTypes

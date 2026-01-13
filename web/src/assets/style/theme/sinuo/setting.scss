@@ -1,0 +1,318 @@
+// 主题名称
+$theme-name: 'sinuo';
+// 主题背景颜色
+$theme-bg-color: #011735;
+$theme-bg-color-ligher: lighten($theme-bg-color, 10%);
+// 主题背景图片遮罩
+$theme-bg-mask: rgba(#000, 0);
+
+// container组件
+$theme-container-background-color: $theme-bg-color;
+$theme-container-header-footer-background-color: $theme-bg-color;
+$theme-container-border-inner: 1px solid $color-border-1;
+$theme-container-border-outer: 1px solid #002253;
+
+$theme-multiple-page-control-color: #FFF;
+$theme-multiple-page-control-color-active: $color-text-normal;
+$theme-multiple-page-control-nav-prev-color: #FFF;
+$theme-multiple-page-control-nav-next-color: #FFF;
+$theme-multiple-page-control-border-color: #002253;
+$theme-multiple-page-control-border-color-active: #FFF;
+$theme-multiple-page-control-background-color: rgba($theme-bg-color, .2);
+$theme-multiple-page-control-background-color-active: $theme-bg-color;
+
+// 顶栏和侧边栏中展开的菜单 hover 状态
+$theme-header-menu-border-color:  #238EDE;
+$theme-menu-item-color-hover: #293849;
+$theme-menu-item-background-color-hover: #ecf5ff;
+
+// 顶栏上的文字颜色
+$theme-header-item-color: rgba(255,255,255,0.5);
+$theme-header-item-background-color: transparent;
+// 顶栏上的项目在 hover 时
+$theme-header-item-color-hover: #fff;
+$theme-header-item-background-color-hover: transparent;
+// 顶栏上的项目在 focus 时
+$theme-header-item-color-focus: $theme-header-menu-border-color;
+$theme-header-item-background-color-focus: rgba(#FFF, .05);
+// 顶栏上的项目在 active 时
+$theme-header-item-color-active: #fff;
+$theme-header-item-background-color-active: transparent;
+
+// 侧边栏上的文字颜色
+$theme-aside-item-color: $color-info;
+$theme-aside-item-background-color: transparent;
+// 侧边栏上的项目在 hover 时
+$theme-aside-item-color-hover: $color-secondary;
+$theme-aside-item-background-color-hover: rgba(#FFF, .05);
+// 侧边栏上的项目在 focus 时
+$theme-aside-item-color-focus: $color-primary;
+$theme-aside-item-background-color-focus: rgba(#FFF, .05);
+// 侧边栏上的项目在 active 时
+$theme-aside-item-color-active: $color-primary;
+$theme-aside-item-background-color-active: rgba(#FFF, .05);
+
+// 侧边栏菜单为空的时候显示的元素
+$theme-aside-menu-empty-icon-color: #FFB870;
+$theme-aside-menu-empty-text-color: #FFB870;
+$theme-aside-menu-empty-background-color: rgba(#FFF, .1);
+$theme-aside-menu-empty-icon-color-hover: #FFEBA4;
+$theme-aside-menu-empty-text-color-hover: #FFEBA4;
+$theme-aside-menu-empty-background-color-hover: rgba(#FFF, .2);
+
+@mixin corner-background($right:auto, $bottom:auto, $left:auto) {
+  $linearGradientDeg: if($right==auto, 30deg, -30deg);
+  content: "";
+  display: inline-block;
+  background: linear-gradient($linearGradientDeg, #011735 11px, #238EDE 11px, #238EDE 12px, #011735 12px)
+    bottom if($right==auto, left, right);
+  width: 22px;
+  height: 13px;
+  background-repeat: no-repeat;
+  position: absolute;
+  @if $left != auto {
+    left: $left;
+  }
+  @if $right != auto {
+    right: $right;
+  }
+  bottom: $bottom;
+}
+
+@mixin spaceship-button-corners{
+  &::before{
+    content: "";
+    display: inline-block;
+    background: linear-gradient(45deg, #011735 11px, #238EDE 11px, #238EDE 12px, transparent 12px) bottom left,
+    linear-gradient(135deg, #011735 11px, #238EDE 11px, #238EDE 12px, transparent 12px) top left;
+    background-position-x: -2px;
+    width: 20px;
+    height: 30px;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: -1px;
+    bottom: -1px;
+  }
+  &::after{
+    content: "";
+    display: inline-block;
+    background: linear-gradient(-45deg, #011735 11px, #238EDE 11px, #238EDE 12px, transparent 12px) bottom right,
+    linear-gradient(-135deg, #011735 11px, #238EDE 11px, #238EDE 12px, transparent 12px) top right;
+    background-position-x: 2px;
+    width: 20px;
+    height: 30px;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: -1px;
+    bottom: -1px;
+  }
+}
+@mixin spaceship-button{
+  cursor: pointer;
+  &.is-active{
+    background: linear-gradient(to right,
+      transparentize($theme-header-menu-border-color, 0.5),
+      transparentize($theme-header-menu-border-color, 0.8),
+      transparentize($theme-header-menu-border-color, 0.5));
+  }
+
+  &.is-active, &:hover{
+    position: relative;
+    border: 1px solid $theme-header-menu-border-color !important;
+    background: $theme-header-item-background-color-hover !important;
+    height: 30px;
+    line-height: 30px;
+    @include spaceship-button-corners;
+    &::before{
+      content: "";
+      display: inline-block;
+      background: linear-gradient(45deg, #011735 11px, #238EDE 11px, #238EDE 12px, transparent 12px) bottom left,
+      linear-gradient(135deg, #011735 11px, #238EDE 11px, #238EDE 12px, transparent 12px) top left;
+      background-position-x: -2px;
+      width: 20px;
+      height: 30px;
+      background-repeat: no-repeat;
+      position: absolute;
+      left: -1px;
+      bottom: -1px;
+    }
+    &::after{
+      content: "";
+      display: inline-block;
+      background: linear-gradient(-45deg, #011735 11px, #238EDE 11px, #238EDE 12px, transparent 12px) bottom right,
+      linear-gradient(-135deg, #011735 11px, #238EDE 11px, #238EDE 12px, transparent 12px) top right;
+      background-position-x: 2px;
+      width: 20px;
+      height: 30px;
+      background-repeat: no-repeat;
+      position: absolute;
+      right: -1px;
+      bottom: -1px;
+    }
+  }
+}
+
+@mixin corner-borders($length:20px, $color: #448299, $position: relative) {
+  position: $position;
+  &::before{
+    background: linear-gradient(to left, $color, $color) left top no-repeat,
+                linear-gradient(to bottom, $color, $color) left top no-repeat,
+                linear-gradient(to left, $color, $color) right top no-repeat,
+                linear-gradient(to bottom, $color, $color) right top no-repeat,
+                linear-gradient(to left, $color, $color) left bottom no-repeat,
+                linear-gradient(to bottom, $color, $color) left bottom no-repeat,
+                linear-gradient(to left, $color, $color) right bottom no-repeat,
+                linear-gradient(to left, $color, $color) right bottom no-repeat;
+    background-size: 1px $length, $length 1px, 1px $length, $length 1px;
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+@mixin corner-line-borders($length:20px, $weight:2px, $color: #448299, $position: relative) {
+  position: $position;
+  &::before{
+    background:
+      linear-gradient(to left, $color, $color) left top no-repeat,
+    //linear-gradient(to bottom, $color, $color) left top no-repeat,
+    linear-gradient(to left, $color, $color) right top no-repeat,
+    //linear-gradient(to bottom, $color, $color) right top no-repeat,
+    linear-gradient(to left, $color, $color) left bottom no-repeat,
+    //linear-gradient(to bottom, $color, $color) left bottom no-repeat,
+    linear-gradient(to left, $color, $color) right bottom no-repeat,
+    linear-gradient(to left, $color, $color) right bottom no-repeat;
+    background-size:  $length $weight, $length $weight, $length $weight, $length $weight;
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+@mixin styled-scrollbar {
+  &::-webkit-scrollbar
+  {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb
+  {
+    width: 8px;
+    background-color: $theme-header-menu-border-color;
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-track
+  {
+    width: 8px;
+    background-color: rgba(255,255,255,0.1);
+  }
+}
+
+.theme-sinuo{
+  .d2-theme-header-menu{
+    .el-menu{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      .el-menu-item{
+        background: transparent !important;
+        color: $theme-header-item-color !important; // 为了解决element会用js设置点击态为它的hover样式的问题
+        &.is-active{
+          color: $theme-header-item-color-active !important;
+        }
+        &:hover{
+          color: $theme-header-item-color-active !important;
+        }
+      }
+    }
+  }
+
+  // 顶部导航菜单
+  .d2-layout-header-aside-group .d2-layout-header-aside-content .d2-theme-header{
+    background: url('/image/theme/sinuo/header/background.png') no-repeat;
+    background-color: transparent;
+    background-size: 100% 100%;
+    z-index: 999;
+    .el-menu{
+      height: 120px;
+      li{
+        $marginTopList:(
+          1: 28px,
+          2: 31px,
+          3: 35px,
+          4: 39px,
+          5: 44px,
+          6: 39px,
+          7: 25px,
+          8: 31px,
+          9: 27px
+        );
+
+        @each $i, $top in $marginTopList {
+          &:nth-child(#{$i}) {
+            margin-top: $top;
+          }
+        }
+      }
+    }
+    // 顶部导航菜单 菜单项
+    .el-menu .el-menu-item{
+      height: 32px;
+      line-height: 28px;
+      width: 119px;
+      text-align: center;
+      padding: 0;
+      background:linear-gradient(180deg,rgba(15,29,55,0.5) 0%,rgba(23,74,127,1) 100%);
+      box-shadow:0px 1px 10px 0px rgba(50,123,225,0.5);
+      opacity:0.9;
+      border:1px solid rgba(50,123,225,1) !important;
+      &:hover{
+        background:linear-gradient(180deg,rgba(15,29,55,0.5) 0%,rgba(23,74,127,1) 100%);
+        box-shadow:0px 1px 10px 0px rgba(50,123,225,0.5);
+        opacity:0.9;
+        border:1px solid rgba(46,192,243,1) !important;
+      }
+      &.is-active{
+        background:linear-gradient(180deg,rgba(15,29,55,0.5) 0%,rgba(23,74,127,1) 100%);
+        box-shadow:0px 1px 10px 0px rgba(50,123,225,0.5);
+        opacity:1;
+        border:1px solid rgba(46,192,243,1) !important;
+      }
+    }
+  }
+  .d2-container-full{
+    right: 0 !important;
+  }
+  .d2-container-full__body{
+    padding: 20px 0 !important;
+    //滚动条
+    &::-webkit-scrollbar {
+      width: 3px;
+      height: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgb(239, 239, 239);
+      border-radius: 2px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #389CC7;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #389CC7;
+    }
+
+    &::-webkit-scrollbar-corner {
+      background: #389CC7;
+    }
+  }
+}
+

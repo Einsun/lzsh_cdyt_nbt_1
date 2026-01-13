@@ -1,0 +1,2981 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NBWebApp</name>
+    </assembly>
+    <members>
+        <member name="T:NBWebApp.Controllers.AeDatasController">
+            <summary>
+            声发射数据接口
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Controllers.AeDatasController.#ctor(NBWebApp.Models.NBDataContext,Microsoft.Extensions.Logging.ILogger{NBWebApp.Controllers.AeDatasController},Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+            <param name="config"></param>
+        </member>
+        <member name="M:NBWebApp.Controllers.AeDatasController.PageData(System.Int32,System.Int32)">
+            <summary>
+            获取分页声发射数据
+            </summary>
+            <param name="page">页码</param>
+            <param name="pagecount">个数</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.AeDatasController.PageWaveData(System.Int32,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            获取分页声发射波形数据
+            </summary>
+            <param name="page">页码</param>
+            <param name="pagecount">个数</param>
+            <param name="deviceid">设备id</param>
+            <param name="starttime">开始时间</param>
+            <param name="endtime">截止时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.AeDatasController.LiveWaveData(System.Int32)">
+            <summary>
+            获取实时声发射波形数据
+            </summary>
+            <param name="deviceid">设备ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.AeDatasController.AeWaveData(System.Int32)">
+            <summary>
+            获取指定id声发射波形数据
+            </summary>
+            <param name="id">声发射波形数据id</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.AeDatasController.Download(System.Int32)">
+            <summary>
+            声发射波形数据下载
+            </summary>
+            <param name="id">声发射波形数据ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.AeDatasController.DownloadMuti(System.Int32[])">
+            <summary>
+            下载多个id声发射数据
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NBWebApp.Controllers.AeRulesController">
+            <summary>
+            声发射规则
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Controllers.AeRulesController.#ctor(NBWebApp.Models.NBDataContext,Microsoft.Extensions.Logging.ILogger{NBWebApp.Controllers.AeRulesController})">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:NBWebApp.Controllers.AeRulesController.GetAeRules">
+            <summary>
+            获取所有规则
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.AeRulesController.GetAeRule(System.Int32)">
+            <summary>
+            获取指定ID规则
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.AeRulesController.PostAeRule(NBWebApp.Models.AeDataRule)">
+            <summary>
+            添加/修改规则
+            </summary>
+            <param name="aeRule">采集规则</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.AeRulesController.DeleteAeRule(System.Int32)">
+            <summary>
+            删除指定ID采集规则
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NBWebApp.Controllers.AlarmDatasController">
+            <summary>
+            告警数据接口
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Controllers.AlarmDatasController.#ctor(NBWebApp.Models.NBDataContext,Microsoft.Extensions.Logging.ILogger{NBWebApp.Controllers.AlarmDatasController})">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:NBWebApp.Controllers.AlarmDatasController.PageAlarmData(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            按设备获取分页告警数据
+            </summary>
+            <param name="page">页码</param>
+            <param name="pagecount">个数</param>
+            <param name="deviceid">设备id</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.AlarmDatasController.PageTypeAlarmData(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            按类型获取分页告警数据
+            </summary>
+            <param name="page">页码</param>
+            <param name="pagecount">个数</param>
+            <param name="productlineid">产线id</param>
+            <param name="commdeviceid">网关id</param>
+            <param name="type">故障类型 0 正常;1 报警;2 故障;3 全部</param>
+            <param name="gathertype">设备类型 0 全部;1:声发射 ; 2:温度传感器 ;3 压力传感器;4 流量传感器;5 振动设备</param>
+            <param name="name">设备名称</param>
+            <param name="starttime">开始时间</param>
+            <param name="endtime">截止时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.AlarmDatasController.DownLoad(System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            下载数据
+            </summary>
+            <param name="productlineid">产线id</param>
+            <param name="commdeviceid">网关id</param>
+            <param name="type">故障类型 0 正常;1 报警;2 故障;3 全部</param>
+            <param name="gathertype">设备类型 0 全部;1:声发射 ; 2:温度传感器 ;3 压力传感器;4 流量传感器;5 振动设备</param>
+            <param name="name">设备名称</param>
+            <param name="starttime">开始时间</param>
+            <param name="endtime">截止时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.AlarmDatasController.AlarmWavedata(System.Int32)">
+            <summary>
+            获取指定产线传感器数据生成波形
+            </summary>
+            <param name="productLineId">产线id</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.AlarmDatasController.SettleAlarm(System.Int32[])">
+            <summary>
+            设置指定id告警数据为已处理
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.AlarmDatasController.AlarmWavedataDate(System.Int32,System.String)">
+            <summary>
+            获取指定产线指定日期传感器数据生成波形
+            </summary>
+            <param name="productLineId">产线id</param>
+            <param name="date">数据日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.AlarmDatasController.AlarmWavedataMonth(System.Int32)">
+            <summary>
+            获取指定产线当月传感器数据生成波形
+            </summary>
+            <param name="productLineId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.AlarmDatasController.AlarmWavedataTime(System.Int32,System.DateTime)">
+            <summary>
+            获取指定产线指定时间点30分钟前传感器数据生成波形
+            </summary>
+            <param name="productLineId">产线id</param>
+            <param name="time">时间点</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.AlarmDatasController.AlarmWavedataYear(System.Int32)">
+            <summary>
+            获取指定产线当年传感器数据生成波形
+            </summary>
+            <param name="productLineId">产线id</param>
+            <returns></returns>
+        </member>
+        <member name="T:NBWebApp.Controllers.AlarmRuleController">
+            <summary>
+            报警规则接口
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Controllers.AlarmRuleController.#ctor(NBWebApp.Models.NBDataContext,Microsoft.Extensions.Logging.ILogger{NBWebApp.Controllers.AlarmRuleController})">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:NBWebApp.Controllers.AlarmRuleController.GetAlarmRules">
+            <summary>
+            获取所有规则
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.AlarmRuleController.TypeRules(NBWebApp.Models.AlarmType)">
+            <summary>
+            根据类型获取所有规则
+            </summary>
+            <param name="type">类型0：温度  1：压力  2：流量  3：震动</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.AlarmRuleController.GetAlarmRule(System.Int32)">
+            <summary>
+            获取指定ID规则
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.AlarmRuleController.PostGatherRule(NBWebApp.Models.AlarmRule)">
+            <summary>
+            添加/修改规则
+            </summary>
+            <param name="alarmRule"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.AlarmRuleController.DeleteGatherRule(System.Int32)">
+            <summary>
+            删除指定ID规则
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NBWebApp.Controllers.CommDevicesController">
+            <summary>
+            传输设备接口
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Controllers.CommDevicesController.#ctor(NBWebApp.Models.NBDataContext,Microsoft.Extensions.Logging.ILogger{NBWebApp.Controllers.CommDevicesController})">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:NBWebApp.Controllers.CommDevicesController.GetCommDevice">
+            <summary>
+            获取所有传输设备
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.CommDevicesController.ProductLine(System.Int32)">
+            <summary>
+            获取指定产线ID下所有传输设备
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.CommDevicesController.TypeCommDevice(System.Int32,NBWebApp.Models.CommType)">
+            <summary>
+            获取产线指定类型传输设备
+            </summary>
+            <param name="id">产线id</param>
+            <param name="type">传输设备类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.CommDevicesController.GetCommDevice(System.Int32)">
+            <summary>
+            获取指定ID传输设备
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.CommDevicesController.PostCommDevice(NBWebApp.Models.CommDevice)">
+            <summary>
+            添加/修改传输设备
+            </summary>
+            <param name="commDevice"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.CommDevicesController.DeleteCommDevice(System.Int32)">
+            <summary>
+            删除指定ID传输设备
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NBWebApp.Controllers.DashBoardController">
+            <summary>
+            面板接口
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Controllers.DashBoardController.#ctor(NBWebApp.Models.NBDataContext,Microsoft.Extensions.Logging.ILogger{NBWebApp.Controllers.DashBoardController})">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:NBWebApp.Controllers.DashBoardController.DeviceSummary">
+            <summary>
+            设备汇总
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.DashBoardController.ProductLineSummary">
+            <summary>
+            报警等级汇总
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.DashBoardController.AlarmSummary">
+            <summary>
+            报警汇总
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.DashBoardController.AlarmHistory(System.Int32,System.Int32)">
+            <summary>
+            设备报警记录
+            </summary>
+            <param name="page">页码</param>
+            <param name="pagecount">每页个数</param>
+            <returns></returns>
+        </member>
+        <member name="T:NBWebApp.Controllers.DevicesController">
+            <summary>
+            设备接口
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Controllers.DevicesController.#ctor(NBWebApp.Models.NBDataContext,Microsoft.Extensions.Logging.ILogger{NBWebApp.Controllers.DevicesController},NBWebApp.Utils.RedisHelper)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+            <param name="redis"></param>
+        </member>
+        <member name="M:NBWebApp.Controllers.DevicesController.GetDevices">
+            <summary>
+            获取所有设备信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.DevicesController.ProductLine(System.Int32,NBWebApp.Models.GatherType)">
+            <summary>
+            获取产线相应ID下type类型的所有设备
+            </summary>
+            <param name="id">产线ID</param>
+            <param name="type">设备类型0:声发射 ; 1:温度传感器 ;2 压力传感器;3 流量传感器;4 振动设备</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.DevicesController.CommDevice(System.Int32)">
+            <summary>
+            获取指定传输设备ID下所有设备信息
+            </summary>
+            <param name="id">设备ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.DevicesController.GetDevice(System.Int32)">
+            <summary>
+            获取指定ID设备信息
+            </summary>
+            <param name="id">设备ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.DevicesController.PostDevice(NBWebApp.Models.Device)">
+            <summary>
+            添加/修改传感器设备
+            </summary>
+            <param name="device">设备信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.DevicesController.AEDevice(NBWebApp.Models.AEDevice)">
+            <summary>
+            添加/修改声发射设备
+            </summary>
+            <param name="device">设备信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.DevicesController.DeleteDevice(System.Int32)">
+            <summary>
+            删除指定ID设备
+            </summary>
+            <param name="id">设备ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.DevicesController.DeviceSummary(System.Int32)">
+            <summary>
+            产线设备个数统计
+            </summary>
+            <param name="prodecelineid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.DevicesController.CaptureNow(System.String)">
+            <summary>
+            采集一次
+            </summary>
+            <param name="sn">传输设备SN</param>
+            <returns></returns>
+        </member>
+        <member name="T:NBWebApp.Controllers.ServiceLocator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Controllers.ServiceLocator.Instance">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Controllers.GatherRuleController">
+            <summary>
+            采集规则接口
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Controllers.GatherRuleController.#ctor(NBWebApp.Models.NBDataContext,Microsoft.Extensions.Logging.ILogger{NBWebApp.Controllers.GatherRuleController})">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:NBWebApp.Controllers.GatherRuleController.GetGatherRules">
+            <summary>
+            获取所有传感器采集规则
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.GatherRuleController.GetGatherRule(System.Int32)">
+            <summary>
+            获取指定ID规则
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.GatherRuleController.PostGatherRule(NBWebApp.Models.GatherRule)">
+            <summary>
+            添加/修改规则
+            </summary>
+            <param name="gatherRule"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.GatherRuleController.DeleteGatherRule(System.Int32)">
+            <summary>
+            删除指定ID规则
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NBWebApp.Controllers.ImageController">
+            <summary>
+            图像接口
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Controllers.ImageController.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:NBWebApp.Controllers.ImageController.Image(System.String)">
+            <summary>
+            图像接口
+            </summary>
+            <param name="name">图像名</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.ImageController.Wave(System.String)">
+            <summary>
+            波形接口
+            </summary>
+            <param name="name">图像名</param>
+            <returns></returns>
+        </member>
+        <member name="T:NBWebApp.Controllers.ProductLineController">
+            <summary>
+            产线接口
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Controllers.ProductLineController.#ctor(Microsoft.Extensions.Logging.ILogger{NBWebApp.Controllers.ProductLineController},NBWebApp.Models.NBDataContext)">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:NBWebApp.Controllers.ProductLineController.GetProductLines">
+            <summary>
+            获取所有产线信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.ProductLineController.GetProductLine(System.Int32)">
+            <summary>
+            获取指定ID产线信息
+            </summary>
+            <param name="id">产线ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.ProductLineController.PostProductLine(NBWebApp.Models.ProductLineSave)">
+            <summary>
+            添加/修改产线
+            </summary>
+            <param name="productLine">产线存储对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.ProductLineController.DeleteProductLine(System.Int32)">
+            <summary>
+            删除指定ID产线
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NBWebApp.Controllers.SensorDatasController">
+            <summary>
+            传感器数据
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Controllers.SensorDatasController.#ctor(NBWebApp.Models.NBDataContext,Microsoft.Extensions.Logging.ILogger{NBWebApp.Controllers.AlarmDatasController})">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:NBWebApp.Controllers.SensorDatasController.PageSensorData(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            获取分页传感器数据
+            </summary>
+            <param name="page">页码</param>
+            <param name="pagecount">个数</param>
+            <param name="commdeviceid">传输设备id</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.SensorDatasController.New(System.Int32)">
+            <summary>
+            获取传感器最新数据
+            </summary>
+            <param name="commdeviceid">传输设备id</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.SensorDatasController.ProdectLine(System.Int32)">
+            <summary>
+            获取指定产线下设备信息
+            </summary>
+            <param name="productlineid">产线id</param>
+            <returns></returns>
+        </member>
+        <member name="T:NBWebApp.Controllers.SignalTypesController">
+            <summary>
+            信号类型
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Controllers.SignalTypesController.#ctor(NBWebApp.Models.NBDataContext,Microsoft.Extensions.Logging.ILogger{NBWebApp.Controllers.SignalTypesController})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:NBWebApp.Controllers.SignalTypesController.GetSignalType">
+            <summary>
+            获取所有类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.SignalTypesController.GetSignalType(System.Int32)">
+            <summary>
+            获取指定ID类型详情
+            </summary>
+            <param name="id">类型ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.SignalTypesController.PostSignalType(NBWebApp.Models.SignalType)">
+            <summary>
+            添加/修改类型
+            </summary>
+            <param name="signalType">类型信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.SignalTypesController.DeleteSignalType(System.Int32)">
+            <summary>
+            删除指定ID类型
+            </summary>
+            <param name="id">类型ID</param>
+            <returns></returns>
+        </member>
+        <member name="T:NBWebApp.Controllers.UserInfoController">
+            <summary>
+            用户接口
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Controllers.UserInfoController.#ctor(NBWebApp.Utils.JwtHelper,Microsoft.Extensions.Logging.ILogger{NBWebApp.Controllers.UserInfoController},NBWebApp.Models.NBDataContext)">
+            <summary>
+            
+            </summary>
+            <param name="jwtHelper"></param>
+            <param name="logger"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:NBWebApp.Controllers.UserInfoController.Login(System.String,System.String)">
+            <summary>
+            登录
+            </summary>
+            <param name="user">用户名</param>
+            <param name="password">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.UserInfoController.ChangePassword(System.String,System.String)">
+            <summary>
+            修改密码
+            </summary>
+            <param name="oldpassword">原密码</param>
+            <param name="newpassword">新密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.UserInfoController.AddUser(System.String,System.String,System.String)">
+            <summary>
+            添加用户
+            </summary>
+            <param name="user"></param>
+            <param name="password"></param>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.UserInfoController.ListRoles">
+            <summary>
+            角色列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.UserInfoController.DeleteUserInfo(System.Int32)">
+            <summary>
+            删除指定ID用户
+            </summary>
+            <param name="id">用户ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Controllers.UserInfoController.GeUserInfo">
+            <summary>
+            获取所有用户
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NBWebApp.Migrations.InitalClass">
+            <inheritdoc />
+        </member>
+        <member name="M:NBWebApp.Migrations.InitalClass.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:NBWebApp.Migrations.InitalClass.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:NBWebApp.Migrations.InitalClass.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:NBWebApp.Migrations.Fix">
+            <inheritdoc />
+        </member>
+        <member name="M:NBWebApp.Migrations.Fix.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:NBWebApp.Migrations.Fix.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:NBWebApp.Migrations.Fix.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:NBWebApp.Migrations.RuleLevel">
+            <inheritdoc />
+        </member>
+        <member name="M:NBWebApp.Migrations.RuleLevel.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:NBWebApp.Migrations.RuleLevel.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:NBWebApp.Migrations.RuleLevel.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:NBWebApp.Migrations.ModifyRule">
+            <inheritdoc />
+        </member>
+        <member name="M:NBWebApp.Migrations.ModifyRule.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:NBWebApp.Migrations.ModifyRule.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:NBWebApp.Migrations.ModifyRule.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:NBWebApp.Migrations.AEWaveDataFix">
+            <inheritdoc />
+        </member>
+        <member name="M:NBWebApp.Migrations.AEWaveDataFix.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:NBWebApp.Migrations.AEWaveDataFix.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:NBWebApp.Migrations.AEWaveDataFix.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:NBWebApp.Models.AeData">
+            <summary>
+            报警规则
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeData.Id">
+            <summary>
+            Key
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeData.SN">
+            <summary>
+            设备SN
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeData.DeviceId">
+            <summary>
+            设备id
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeData.AMP">
+            <summary>
+            幅度
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeData.ASL">
+            <summary>
+            平均值
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeData.Power">
+            <summary>
+            能量
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeData.RMS">
+            <summary>
+            有效值
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeData.RisingTime">
+            <summary>
+            上升时间
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeData.RisingNum">
+            <summary>
+            上升计数
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeData.RingingNum">
+            <summary>
+            振铃计数
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeData.DuringTime">
+            <summary>
+            持续时间
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeData.UnixTime">
+            <summary>
+            unix时间戳
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeData.InsertTime">
+            <summary>
+            插入时间
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Models.AeRule">
+            <summary>
+            声发射采集规则
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeRule.Id">
+            <summary>
+            Key
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeRule.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeRule.MeasureConfig">
+            <summary>
+            采集设置
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeRule.LevelConfig">
+            <summary>
+            评级设置
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeRule.TimingConfig">
+            <summary>
+            定时设置
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Models.AeDataRule">
+            <summary>
+            声发射采集规则
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeDataRule.Id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeDataRule.Name">
+            <summary>
+            规则名称
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeDataRule.measureConfig">
+            <summary>
+            声发射采集设置
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeDataRule.levelConfig">
+            <summary>
+            声发射评级设置
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeDataRule.timingConfig">
+            <summary>
+            声发射定时设置
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Models.AeWaveData">
+            <summary>
+            声发射波形数据
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeWaveData.Id">
+            <summary>
+            Key
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeWaveData.SN">
+            <summary>
+            设备SN
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeWaveData.DeviceId">
+            <summary>
+            设备id
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeWaveData.Points">
+            <summary>
+            波形点数
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeWaveData.Speed">
+            <summary>
+            采样速率
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeWaveData.Gain">
+            <summary>
+            前放增益
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeWaveData.Enlarge">
+            <summary>
+            电路放大倍数
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeWaveData.Data">
+            <summary>
+            波形数据
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeWaveData.UnixTime">
+            <summary>
+            unix时间戳
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeWaveData.InsertTime">
+            <summary>
+            插入时间
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeWaveData.StartTime">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeWaveData.EndTime">
+            <summary>
+            结束时间
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeWaveData.FaultSta">
+            <summary>
+            有无故障
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeWaveData.FaultEnum">
+            <summary>
+            故障类型
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeWaveData.RootMeanSquare">
+            <summary>
+            均方根
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeWaveData.MesDataAddr1">
+            <summary>
+            计算后的数据波形1
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeWaveData.MesDataImage1">
+            <summary>
+            计算后的数据波形1
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeWaveData.Settle">
+            <summary>
+            是否处理
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Models.AlarmData">
+            <summary>
+            报警数据
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AlarmData.Id">
+            <summary>
+            key
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AlarmData.DeviceId">
+            <summary>
+            设备ID
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AlarmData.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AlarmData.Time">
+            <summary>
+            采集时间
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AlarmData.Reason">
+            <summary>
+            报警原因
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AlarmData.Settle">
+            <summary>
+            是否处理
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AlarmData.AlarmType">
+            <summary>
+            类型 0 正常;1 报警;2 故障
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Models.AlarmRule">
+            <summary>
+            报警规则
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AlarmRule.Id">
+            <summary>
+            Key
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AlarmRule.Name">
+            <summary>
+            规则名称
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AlarmRule.Type">
+            <summary>
+            设备类型
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AlarmRule.Max">
+            <summary>
+            上限值
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AlarmRule.Min">
+            <summary>
+            下限值
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AlarmRule.Level">
+            <summary>
+            告警等级
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Models.AlarmType">
+            <summary>
+            设备类型 0：温度  1：压力  2：流量  3：震动 
+            </summary>
+        </member>
+        <member name="F:NBWebApp.Models.AlarmType.TEMP">
+            <summary>
+            温度
+            </summary>
+        </member>
+        <member name="F:NBWebApp.Models.AlarmType.PRESS">
+            <summary>
+            压力
+            </summary>
+        </member>
+        <member name="F:NBWebApp.Models.AlarmType.FLOW">
+            <summary>
+            流量
+            </summary>
+        </member>
+        <member name="F:NBWebApp.Models.AlarmType.VIBRATING">
+            <summary>
+            振动
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Models.CommDevice">
+            <summary>
+            传输设备
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.CommDevice.Id">
+            <summary>
+            Key
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.CommDevice.Name">
+            <summary>
+            设备名称
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.CommDevice.ProductLineId">
+            <summary>
+            产线ID
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.CommDevice.Type">
+            <summary>
+            传输设备类型
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.CommDevice.SN">
+            <summary>
+            设备SN
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.CommDevice.State">
+            <summary>
+            在线状态
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.CommDevice.GatherRuleId">
+            <summary>
+            传感器采集规则
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Models.CommType">
+            <summary>
+            传输设备类型 0:采集网关; 1:声发射
+            </summary>
+        </member>
+        <member name="F:NBWebApp.Models.CommType.Gateway">
+            <summary>
+            采集网关
+            </summary>
+        </member>
+        <member name="F:NBWebApp.Models.CommType.AE">
+            <summary>
+            声发射
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Models.Device">
+            <summary>
+            设备信息
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.Device.Id">
+            <summary>
+            Key
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.Device.Name">
+            <summary>
+            设备名称
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.Device.SN">
+            <summary>
+            设备编号
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.Device.Type">
+            <summary>
+            设备类型
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.Device.ProductLineId">
+            <summary>
+            产线ID
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.Device.CommDeviceId">
+            <summary>
+            传输设备ID
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.Device.Address">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.Device.Pos">
+            <summary>
+            通道
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.Device.AlarmRuleId">
+            <summary>
+            报警规则ID
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.Device.AeRuleId">
+            <summary>
+            声发射规则ID
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.Device.State">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.Device.MaxValue">
+            <summary>
+            最大值
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.Device.MinValue">
+            <summary>
+            最小值
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.Device.Samping">
+            <summary>
+            采样位
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.Device.SignalTypeId">
+            <summary>
+            信号类型
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.Device.Unit">
+            <summary>
+            单位
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Models.AEDevice">
+            <summary>
+            声发射设备信息
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AEDevice.Id">
+            <summary>
+            Key
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AEDevice.Name">
+            <summary>
+            设备名称
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AEDevice.SN">
+            <summary>
+            设备编号
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AEDevice.ProductLineId">
+            <summary>
+            产线ID
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AEDevice.CommDeviceId">
+            <summary>
+            传输设备ID
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AEDevice.AeRuleId">
+            <summary>
+            声发射规则ID
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Models.AeInfo">
+            <summary>
+            声发射相关信息
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeInfo.packet_name">
+            <summary>
+            packet_name: 字符串，分为RAEM1/RAEM2/QCIOTGW
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeInfo.node_id">
+            <summary>
+            设备ID
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeInfo.gateway_id">
+            <summary>
+            网关ID
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Models.AeMeasureConfig">
+            <summary>
+            声发射采集设置
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeMeasureConfig.ae_threshold">
+            <summary>
+            门限，单位为db
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeMeasureConfig.ae_measure_speed">
+            <summary>
+            采集速率，单位为k/s
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeMeasureConfig.ae_measure_mode">
+            <summary>
+            采集模式，1为包络采集，2为连续采集
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeMeasureConfig.ae_eet">
+            <summary>
+            波形截止时间，包络模式下有效，单位为us
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeMeasureConfig.ae_hdt">
+            <summary>
+            波形定义时间，包络模式下有效，单位为us
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeMeasureConfig.ae_hlt">
+            <summary>
+            波形闭锁时间，包络模式下有效，单位为us
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeMeasureConfig.ae_measure_length">
+            <summary>
+            采样长度，单位为us，连续采集下有效
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeMeasureConfig.ae_measure_times">
+            <summary>
+            采样次数，单位为次，连续采集下有效
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeMeasureConfig.ae_measure_interval">
+            <summary>
+            采样间隔，单位为us，连续采集下有效
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeMeasureConfig.ae_para_enable">
+            <summary>
+            参数发送使能，0/1
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeMeasureConfig.ae_wave_enable">
+            <summary>
+            波形发送使能，0/1
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeMeasureConfig.ae_system_time">
+            <summary>
+            系统当前时间，单位为秒
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeMeasureConfig.ae_measure_state">
+            <summary>
+            系统采集状态，0为停止，1位启动
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Models.AeLevelConfig">
+            <summary>
+            声发射评级设置
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeLevelConfig.ae_level_enable">
+            <summary>
+            评级功能使能，0为禁止，1为使能
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeLevelConfig.ae_level_cal_time">
+            <summary>
+            评级统计时间，单位为秒
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeLevelConfig.ae_level_strength_report_type">
+            <summary>
+            实时强度上报类型 0：不上报 1：上报1级强度 2：上报2级强度 3：上报3级强度
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeLevelConfig.ae_level_strength_report_interval">
+            <summary>
+            实时强度上报最小间隔 秒为单位
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Models.AeTimingConfig">
+            <summary>
+            声发射定时设置
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeTimingConfig.ae_timing_enable">
+            <summary>
+            无作用，都是1
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeTimingConfig.ae_timing_type">
+            <summary>
+            定时采集类型，1表示为连续采集模式，3表示为间隔采集模式
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeTimingConfig.ae_timing_length">
+            <summary>
+            定时采集时长，只有ae_timing_type为3时有效，单位为秒
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeTimingConfig.ae_timing_sleep">
+            <summary>
+            定时采集休眠时间，只有ae_timing_type为3是有效，单位为秒
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Models.AeDevInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeDevInfo.TimingType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeDevInfo.TimingLength">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeDevInfo.TimingSleep">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.AeDevInfo.State">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Models.GatherRule">
+            <summary>
+            采集规则
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.GatherRule.Id">
+            <summary>
+            Key
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.GatherRule.Name">
+            <summary>
+            规则名称
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.GatherRule.StartTime">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.GatherRule.EndTime">
+            <summary>
+            结束时间
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.GatherRule.Interval">
+            <summary>
+            采集间隔，单位秒
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Models.GatherType">
+            <summary>
+            采集类型 0:声发射 ; 1:温度传感器 ;2 压力传感器;3 流量传感器;4 振动设备
+            </summary>
+        </member>
+        <member name="F:NBWebApp.Models.GatherType.AE">
+            <summary>
+            声发射
+            </summary>
+        </member>
+        <member name="F:NBWebApp.Models.GatherType.TEMPERATURE">
+            <summary>
+            温度传感器
+            </summary>
+        </member>
+        <member name="F:NBWebApp.Models.GatherType.PRESSURE">
+            <summary>
+            压力传感器
+            </summary>
+        </member>
+        <member name="F:NBWebApp.Models.GatherType.FLOWRATE">
+            <summary>
+            流量传感器
+            </summary>
+        </member>
+        <member name="F:NBWebApp.Models.GatherType.Vibrating">
+            <summary>
+            振动设备
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Models.NBDataContext">
+            <summary>
+            数据对象
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.NBDataContext.UserInfos">
+            <summary>
+            用户表
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.NBDataContext.ProductLines">
+            <summary>
+            产线
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.NBDataContext.GatherRules">
+            <summary>
+            采集规则
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.NBDataContext.AlarmRules">
+            <summary>
+            报警规则
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.NBDataContext.CommDevices">
+            <summary>
+            传输设备
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.NBDataContext.Devices">
+            <summary>
+            采集设备
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.NBDataContext.AeDatas">
+            <summary>
+            声发射数据
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.NBDataContext.AeWaveDatas">
+            <summary>
+            声发射波形数据
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.NBDataContext.SensorDatas">
+            <summary>
+            传感器数据
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.NBDataContext.AlarmDatas">
+            <summary>
+            报警数据
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.NBDataContext.AeRules">
+            <summary>
+            声发射规则
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Models.NBDataContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{NBWebApp.Models.NBDataContext})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:NBWebApp.Models.NBDataContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            初始化数据
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="P:NBWebApp.Models.NBDataContext.SignalType">
+            <summary>
+            信号类型
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Models.ProductLine">
+            <summary>
+            产线
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.ProductLine.Id">
+            <summary>
+            KEY
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.ProductLine.Name">
+            <summary>
+            产线名称
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.ProductLine.Image">
+            <summary>
+            产线图片
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.ProductLine.Level">
+            <summary>
+            检测等级
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.ProductLine.Location">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.ProductLine.Life">
+            <summary>
+            设备寿命
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.ProductLine.InstallTime">
+            <summary>
+            安装时间
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Models.ProductLineSave">
+            <summary>
+            产线保存
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.ProductLineSave.File">
+            <summary>
+            图片文件
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Models.ResultInfo">
+            <summary>
+            结果信息
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.ResultInfo.Code">
+            <summary>
+            返回码
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.ResultInfo.Message">
+            <summary>
+            返回信息
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.ResultInfo.Data">
+            <summary>
+            返回数据
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.ResultInfo.Count">
+            <summary>
+            个数
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Models.SensorData">
+            <summary>
+            传感器数据
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.SensorData.Id">
+            <summary>
+            KEY
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.SensorData.CommDeviceId">
+            <summary>
+            传输设备ID
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.SensorData.Data">
+            <summary>
+            数据
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.SensorData.Time">
+            <summary>
+            采集时间
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Models.SignalType">
+            <summary>
+            信号类型
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.SignalType.Id">
+            <summary>
+            KEY
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.SignalType.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.SignalType.MaxValue">
+            <summary>
+            最大值
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.SignalType.MinValue">
+            <summary>
+            最小值
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Models.UserInfo">
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.UserInfo.Id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.UserInfo.Name">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.UserInfo.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Models.UserInfo.Role">
+            <summary>
+            角色 Admin  User1  User2
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Utils.AeConfigService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Utils.AeConfigService.#ctor(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory,Microsoft.Extensions.Logging.ILogger{NBWebApp.Utils.AeConfigService},NBWebApp.Utils.RedisHelper,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="_scopeFactory"></param>
+            <param name="logger"></param>
+            <param name="redisHelper"></param>
+            <param name="config"></param>
+        </member>
+        <member name="M:NBWebApp.Utils.AeConfigService.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Utils.AeConfigService.StartAsync(System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Utils.AeConfigService.StopAsync(System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Utils.AeConfigService.ConvertLocalDateTimeToUtcTimestamp(System.DateTime)">
+            <summary>  
+            将c# 本地DateTime时间格式转换为Unix时间戳格式 （毫秒）
+            </summary>  
+            <param name="localTime">时间</param>  
+            <returns>long</returns>  
+        </member>
+        <member name="T:NBWebApp.Utils.DatetimeJsonConverter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Utils.DatetimeJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            
+            </summary>
+            <param name="reader"></param>
+            <param name="typeToConvert"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Utils.DatetimeJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.DateTime,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="options"></param>
+        </member>
+        <member name="T:NBWebApp.Utils.JwtHelper">
+            <summary>
+            jwt帮助类
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Utils.JwtHelper.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:NBWebApp.Utils.JwtHelper.CreateToken(System.String,System.String)">
+            <summary>
+            创建Token
+            </summary>
+            <param name="user"></param>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NBWebApp.Utils.ModBusService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Utils.ModBusService.#ctor(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory,Microsoft.Extensions.Logging.ILogger{NBWebApp.Utils.TCPService})">
+            <summary>
+            
+            </summary>
+            <param name="_scopeFactory"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:NBWebApp.Utils.ModBusService.SendOne(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="sn"></param>
+        </member>
+        <member name="M:NBWebApp.Utils.ModBusService.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Utils.ModBusService.StartAsync(System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Utils.ModBusService.StopAsync(System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NBWebApp.Utils.ObjectCopy">
+            <summary>
+            对象静态类
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Utils.ObjectCopy.TransReflection``1(``0,``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="tIn"></param>
+            <param name="tOut"></param>
+        </member>
+        <member name="T:NBWebApp.Utils.RedisHelper">
+            <summary>
+            Redis帮助类
+            </summary>
+        </member>
+        <member name="F:NBWebApp.Utils.RedisHelper.AeDevInfos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Utils.RedisHelper.#ctor(System.String,System.String,System.Int32)">
+            <summary>
+            初始化
+            </summary>
+            <param name="connectionString"></param>
+            <param name="instanceName"></param>
+            <param name="defaultDB"></param>
+        </member>
+        <member name="M:NBWebApp.Utils.RedisHelper.GetConnect">
+            <summary>
+            获取ConnectionMultiplexer
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Utils.RedisHelper.GetDatabase">
+            <summary>
+            获取redis数据库
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Utils.RedisHelper.GetServer(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="configName"></param>
+            <param name="endPointsIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Utils.RedisHelper.GetSubscriber(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="configName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Utils.RedisHelper.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Utils.TCPService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Utils.TCPService.#ctor(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory,Microsoft.Extensions.Logging.ILogger{NBWebApp.Utils.TCPService},Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="_scopeFactory"></param>
+            <param name="logger"></param>
+            <param name="config"></param>
+        </member>
+        <member name="M:NBWebApp.Utils.TCPService.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Utils.TCPService.StartAsync(System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Utils.TCPService.StopAsync(System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NBWebApp.Utils.DeviceInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Utils.DeviceInfo.ProductLineId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Utils.DeviceInfo.DeviceId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Utils.DeviceInfo.Sn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Utils.DeviceInfo.Type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Utils.DeviceInfo.AeWaveData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Utils.DeviceInfo.Value">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Utils.DeviceInfo.State">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Utils.DeviceInfo.ConnectID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Utils.DeviceInfo.Starttime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Utils.DeviceInfo.TimingLength">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Utils.DeviceInfo.TimingSleep">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Utils.DeviceInfo.Save">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Utils.WaveData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Utils.WaveData.points">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Utils.WaveData.speed">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Utils.WaveData.gain">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Utils.WaveData.enlarge">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Utils.WaveData.unixtime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NBWebApp.Utils.WaveData.data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Utils.WaveData.StartTime">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Utils.WaveData.EndTime">
+            <summary>
+            结束时间
+            </summary>
+        </member>
+        <member name="T:NBWebApp.Websocket.BusMessageHandler">
+            <summary>
+            业务逻辑处理
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Websocket.BusMessageHandler.#ctor(NBWebApp.Websocket.WebSocketConnectionManager)">
+            <summary>
+            
+            </summary>
+            <param name="webSocketConnectionManager"></param>
+        </member>
+        <member name="M:NBWebApp.Websocket.BusMessageHandler.ReceiveAsync(System.Net.WebSockets.WebSocket,System.Net.WebSockets.WebSocketReceiveResult,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="socket"></param>
+            <param name="result"></param>
+            <param name="receivedMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NBWebApp.Websocket.WebSocketConnectionManager">
+            <summary>
+             WebSocket 管理
+            </summary>
+        </member>
+        <member name="F:NBWebApp.Websocket.WebSocketConnectionManager._sockets">
+            <summary>
+            用户连接池
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketConnectionManager.GetSocketById(System.String)">
+            <summary>
+            获取指定id的socket
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketConnectionManager.GetAll">
+            <summary>
+            获取所有socket
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketConnectionManager.GetId(System.Net.WebSockets.WebSocket)">
+            <summary>
+            根据 socket 获取其id
+            </summary>
+            <param name="socket"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketConnectionManager.AddSocket(System.Net.WebSockets.WebSocket)">
+            <summary>
+            添加socket连接
+            </summary>
+            <param name="socket"></param>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketConnectionManager.AddSocket(System.String,System.Net.WebSockets.WebSocket)">
+            <summary>
+            添加指定id的socket连接
+            </summary>
+            <param name="socketID"></param>
+            <param name="socket"></param>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketConnectionManager.RemoveSocket(System.String)">
+            <summary>
+            删除指定 id 的 socket，并关闭连接
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketConnectionManager.CreateConnectionId">
+            <summary>
+            创建 socket 的 id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketConnectionManager.GetSocketClientCount">
+            <summary>
+            获取socket连接总数量
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketConnectionManager.GetAllFromGroup(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="GroupID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketConnectionManager.AddToGroup(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="socketID"></param>
+            <param name="groupID"></param>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketConnectionManager.RemoveFromGroup(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="socketID"></param>
+            <param name="groupID"></param>
+        </member>
+        <member name="T:NBWebApp.Websocket.WebSocketHandler">
+            <summary>
+             WebSocket 抽象类
+            </summary>
+        </member>
+        <member name="P:NBWebApp.Websocket.WebSocketHandler.WebSocketConnectionManager">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketHandler.#ctor(NBWebApp.Websocket.WebSocketConnectionManager)">
+            <summary>
+            
+            </summary>
+            <param name="webSocketConnectionManager"></param>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketHandler.GetWebStocket(System.String)">
+            <summary>
+            根据 stocketId获取对应的WebSocket
+            </summary>
+            <param name="socketId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketHandler.OnConnected(System.Net.WebSockets.WebSocket)">
+            <summary>
+            连接一个 socket
+            </summary>
+            <param name="socket"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketHandler.OnConnected(System.String,System.Net.WebSockets.WebSocket)">
+            <summary>
+            连接一个 socket （指定socketId）
+            </summary>
+            <param name="socketId"></param>
+            <param name="socket"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketHandler.OnDisconnected(System.Net.WebSockets.WebSocket)">
+            <summary>
+            
+            </summary>
+            <param name="socket"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketHandler.SendMessageAsync(System.Net.WebSockets.WebSocket,System.String)">
+            <summary>
+            发送消息给指定 socket
+            </summary>
+            <param name="socket"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketHandler.SendMessageAsync(System.String,System.String)">
+            <summary>
+            发送消息给指定id的socket
+            </summary>
+            <param name="socketId"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketHandler.SendMessageAsync(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            发送消息给多个指定id的socket
+            </summary>
+            <param name="sockets"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketHandler.GetAll">
+            <summary>
+            获取所有 socket 连接
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketHandler.SendMessageToAllAsync(System.String)">
+            <summary>
+            给所有 socket 发送消息
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketHandler.SendMessageToGroupAsync(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="groupID"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketHandler.SendMessageToGroupAsync(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="groupID"></param>
+            <param name="message"></param>
+            <param name="except"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketHandler.ReceiveAsync(System.Net.WebSockets.WebSocket,System.Net.WebSockets.WebSocketReceiveResult,System.String)">
+            <summary>
+            接收消息
+            </summary>
+            <param name="socket"></param>
+            <param name="result"></param>
+            <param name="receivedMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NBWebApp.Websocket.WebSocketManagerExtensions">
+            <summary>
+            中间件扩展方法
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketManagerExtensions.AddWebSocketManager(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <param name="assembly"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketManagerExtensions.MapWebSocketManager(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Http.PathString,NBWebApp.Websocket.WebSocketHandler)">
+            <summary>
+            通过扩展方法公开中间件
+            </summary>
+            <param name="app"></param>
+            <param name="path"></param>
+            <param name="handler"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NBWebApp.Websocket.WebSocketManagerMiddleware">
+            <summary>
+            自定义 WebSocket 中间件
+            </summary>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketManagerMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,NBWebApp.Websocket.WebSocketHandler,Microsoft.Extensions.Logging.ILogger{NBWebApp.Websocket.WebSocketManagerMiddleware})">
+            <summary>
+            
+            </summary>
+            <param name="next"></param>
+            <param name="webSocketHandler"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:NBWebApp.Websocket.WebSocketManagerMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyTCP.Channel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:EasyTCP.Channel.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:EasyTCP.Channel.DataType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyTCP.Channel.SN">
+            <summary>
+            SN
+            </summary>
+        </member>
+        <member name="M:EasyTCP.Channel.#ctor(EasyTCP.Server,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="myServer"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:EasyTCP.Channel.SendOne(System.String)">
+            <summary>
+            发送一次
+            </summary>
+            <param name="sn"></param>
+        </member>
+        <member name="M:EasyTCP.Channel.Open(System.Net.Sockets.TcpClient)">
+            <summary>
+            
+            </summary>
+            <param name="client"></param>
+        </member>
+        <member name="M:EasyTCP.Channel.Send(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:EasyTCP.Channel.Send(System.Byte[])">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:EasyTCP.Channel.CRC16(System.Byte[])">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyTCP.Channel.SetAddress(System.Collections.Generic.List{System.Int32},System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            
+            </summary>
+            <param name="addrs"></param>
+            <param name="interval"></param>
+            <param name="starttime"></param>
+            <param name="endtime"></param>
+        </member>
+        <member name="M:EasyTCP.Channel.Close">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EasyTCP.Channel.Dispose(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:EasyTCP.Channel.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:EasyTCP.Channels">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:EasyTCP.Channels.OpenChannels">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EasyTCP.Channels.#ctor(EasyTCP.Server)">
+            <summary>
+            
+            </summary>
+            <param name="myServer"></param>
+        </member>
+        <member name="T:EasyTCP.DataReceivedArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyTCP.DataReceivedArgs.ConnectionId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyTCP.DataReceivedArgs.SN">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyTCP.DataReceivedArgs.Data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyTCP.DataReceivedArgs.Message">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyTCP.DataReceivedArgs.Type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyTCP.DataReceivedArgs.Addr">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="P:EasyTCP.DataReceivedArgs.ThisChannel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyTCP.DataReceivedArgs.RemoteIP">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EasyTCP.DataReceivedArgs.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:EasyTCP.Server">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyTCP.Server.Running">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:EasyTCP.Server.DataReceived">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:EasyTCP.Server.ConnectedChannels">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EasyTCP.Server.#ctor(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="ip"></param>
+            <param name="port"></param>
+        </member>
+        <member name="M:EasyTCP.Server.Start(System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EasyTCP.Server.Stop">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EasyTCP.Server.OnDataIn(EasyTCP.DataReceivedArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="T:QcMessages.QcMessageReflection">
+            <summary>Holder for reflection information generated from QcMessage.proto</summary>
+        </member>
+        <member name="P:QcMessages.QcMessageReflection.Descriptor">
+            <summary>File descriptor for QcMessage.proto</summary>
+        </member>
+        <member name="F:QcMessages.SensorMessage.PacketNameFieldNumber">
+            <summary>Field number for the "packet_name" field.</summary>
+        </member>
+        <member name="F:QcMessages.SensorMessage.NodeIdFieldNumber">
+            <summary>Field number for the "node_id" field.</summary>
+        </member>
+        <member name="F:QcMessages.SensorMessage.GatewayIdFieldNumber">
+            <summary>Field number for the "gateway_id" field.</summary>
+        </member>
+        <member name="F:QcMessages.SensorMessage.UnixTimeFieldNumber">
+            <summary>Field number for the "unix_time" field.</summary>
+        </member>
+        <member name="F:QcMessages.SensorMessage.MicrosecondFieldNumber">
+            <summary>Field number for the "microsecond" field.</summary>
+        </member>
+        <member name="F:QcMessages.SensorMessage.ErrCommentFieldNumber">
+            <summary>Field number for the "err_comment" field.</summary>
+        </member>
+        <member name="F:QcMessages.SensorMessage.VerFieldNumber">
+            <summary>Field number for the "ver" field.</summary>
+        </member>
+        <member name="F:QcMessages.SensorMessage.AeSensorDataFieldNumber">
+            <summary>Field number for the "aeSensorData" field.</summary>
+        </member>
+        <member name="P:QcMessages.SensorMessage.AeSensorData">
+            <summary>
+            声发射数据
+            </summary>
+        </member>
+        <member name="F:QcMessages.SensorMessage.AeMeasureConfigFieldNumber">
+            <summary>Field number for the "aeMeasureConfig" field.</summary>
+        </member>
+        <member name="P:QcMessages.SensorMessage.AeMeasureConfig">
+            <summary>
+            声发射采集配置
+            </summary>
+        </member>
+        <member name="F:QcMessages.SensorMessage.AeLevelConfigFieldNumber">
+            <summary>Field number for the "aeLevelConfig" field.</summary>
+        </member>
+        <member name="P:QcMessages.SensorMessage.AeLevelConfig">
+            <summary>
+            声发射评级配置
+            </summary>
+        </member>
+        <member name="F:QcMessages.SensorMessage.AeTimingConfigFieldNumber">
+            <summary>Field number for the "aeTimingConfig" field.</summary>
+        </member>
+        <member name="P:QcMessages.SensorMessage.AeTimingConfig">
+            <summary>
+            声发射定时配置
+            </summary>
+        </member>
+        <member name="F:QcMessages.SensorMessage.AeSensorLevelDataFieldNumber">
+            <summary>Field number for the "aeSensorLevelData" field.</summary>
+        </member>
+        <member name="P:QcMessages.SensorMessage.AeSensorLevelData">
+            <summary>
+            声发射评级数据
+            </summary>
+        </member>
+        <member name="F:QcMessages.SensorMessage.SystemFwUpdateFieldNumber">
+            <summary>Field number for the "systemFwUpdate" field.</summary>
+        </member>
+        <member name="P:QcMessages.SensorMessage.SystemFwUpdate">
+            <summary>
+            系统固件升级
+            </summary>
+        </member>
+        <member name="F:QcMessages.SensorMessage.IotDeviceStateFieldNumber">
+            <summary>Field number for the "iotDeviceState" field.</summary>
+        </member>
+        <member name="P:QcMessages.SensorMessage.IotDeviceState">
+            <summary>
+            IOT设备状态
+            </summary>
+        </member>
+        <member name="T:QcMessages.SensorMessage.MsgOneofCase">
+            <summary>Enum of possible cases for the "msg" oneof.</summary>
+        </member>
+        <member name="T:QcSensorMessagesReflection">
+            <summary>Holder for reflection information generated from QcSensorMessages/QcSensorMessages.proto</summary>
+        </member>
+        <member name="P:QcSensorMessagesReflection.Descriptor">
+            <summary>File descriptor for QcSensorMessages/QcSensorMessages.proto</summary>
+        </member>
+        <member name="F:AeLevelConfig.AeLevelEnableFieldNumber">
+            <summary>Field number for the "ae_level_enable" field.</summary>
+        </member>
+        <member name="F:AeLevelConfig.AeLevelStrengthFieldNumber">
+            <summary>Field number for the "ae_level_strength" field.</summary>
+        </member>
+        <member name="P:AeLevelConfig.AeLevelStrength">
+            <summary>
+            强度设置 json格式
+            </summary>
+        </member>
+        <member name="F:AeLevelConfig.AeLevelActivityFieldNumber">
+            <summary>Field number for the "ae_level_activity" field.</summary>
+        </member>
+        <member name="P:AeLevelConfig.AeLevelActivity">
+            <summary>
+            活度设置 json格式
+            </summary>
+        </member>
+        <member name="F:AeLevelConfig.AeLevelCalTimeFieldNumber">
+            <summary>Field number for the "ae_level_cal_time" field.</summary>
+        </member>
+        <member name="P:AeLevelConfig.AeLevelCalTime">
+            <summary>
+            评级统计时间，单位为秒
+            </summary>
+        </member>
+        <member name="F:AeLevelConfig.AeLevelStrengthReportTypeFieldNumber">
+            <summary>Field number for the "ae_level_strength_report_type" field.</summary>
+        </member>
+        <member name="P:AeLevelConfig.AeLevelStrengthReportType">
+            <summary>
+            实时强度上报类型 0：不上报 1：上报1级强度 2：上报2级强度 3：上报3级强度
+            </summary>
+        </member>
+        <member name="F:AeLevelConfig.AeLevelStrengthReportIntervalFieldNumber">
+            <summary>Field number for the "ae_level_strength_report_interval" field.</summary>
+        </member>
+        <member name="P:AeLevelConfig.AeLevelStrengthReportInterval">
+            <summary>
+            实时强度上报最小间隔 秒为单位
+            </summary>
+        </member>
+        <member name="F:AeTimingConfig.AeTimingEnableFieldNumber">
+            <summary>Field number for the "ae_timing_enable" field.</summary>
+        </member>
+        <member name="F:AeTimingConfig.AeTimingTypeFieldNumber">
+            <summary>Field number for the "ae_timing_type" field.</summary>
+        </member>
+        <member name="P:AeTimingConfig.AeTimingType">
+            <summary>
+            定时采集类型
+            </summary>
+        </member>
+        <member name="F:AeTimingConfig.AeTimingLengthFieldNumber">
+            <summary>Field number for the "ae_timing_length" field.</summary>
+        </member>
+        <member name="P:AeTimingConfig.AeTimingLength">
+            <summary>
+            定时采集长度
+            </summary>
+        </member>
+        <member name="F:AeTimingConfig.AeTimingSleepFieldNumber">
+            <summary>Field number for the "ae_timing_sleep" field.</summary>
+        </member>
+        <member name="P:AeTimingConfig.AeTimingSleep">
+            <summary>
+            定时采集休眠时间
+            </summary>
+        </member>
+        <member name="F:AeWaveData.AeWaveEndFieldNumber">
+            <summary>Field number for the "ae_wave_end" field.</summary>
+        </member>
+        <member name="P:AeWaveData.AeWaveEnd">
+            <summary>
+            波形结束标志
+            </summary>
+        </member>
+        <member name="F:AeWaveData.AeWaveData_FieldNumber">
+            <summary>Field number for the "ae_wave_data" field.</summary>
+        </member>
+        <member name="F:AeSensorData.AeMeasureSpeedFieldNumber">
+            <summary>Field number for the "ae_measure_speed" field.</summary>
+        </member>
+        <member name="P:AeSensorData.AeMeasureSpeed">
+            <summary>
+            采样速度
+            </summary>
+        </member>
+        <member name="F:AeSensorData.AeGainValueFieldNumber">
+            <summary>Field number for the "ae_gain_value" field.</summary>
+        </member>
+        <member name="P:AeSensorData.AeGainValue">
+            <summary>
+            前放放大倍数
+            </summary>
+        </member>
+        <member name="F:AeSensorData.AeEnlargeValueFieldNumber">
+            <summary>Field number for the "ae_enlarge_value" field.</summary>
+        </member>
+        <member name="P:AeSensorData.AeEnlargeValue">
+            <summary>
+            系统放大倍数
+            </summary>
+        </member>
+        <member name="F:AeSensorData.AeAmpFieldNumber">
+            <summary>Field number for the "ae_amp" field.</summary>
+        </member>
+        <member name="P:AeSensorData.AeAmp">
+            <summary>
+            幅度
+            </summary>
+        </member>
+        <member name="F:AeSensorData.AePowerFieldNumber">
+            <summary>Field number for the "ae_power" field.</summary>
+        </member>
+        <member name="P:AeSensorData.AePower">
+            <summary>
+            能量
+            </summary>
+        </member>
+        <member name="F:AeSensorData.AeAslFieldNumber">
+            <summary>Field number for the "ae_asl" field.</summary>
+        </member>
+        <member name="P:AeSensorData.AeAsl">
+            <summary>
+            平均值
+            </summary>
+        </member>
+        <member name="F:AeSensorData.AeRmsFieldNumber">
+            <summary>Field number for the "ae_rms" field.</summary>
+        </member>
+        <member name="P:AeSensorData.AeRms">
+            <summary>
+            有效值
+            </summary>
+        </member>
+        <member name="F:AeSensorData.AeRingingNumFieldNumber">
+            <summary>Field number for the "ae_ringing_num" field.</summary>
+        </member>
+        <member name="P:AeSensorData.AeRingingNum">
+            <summary>
+            振铃计数
+            </summary>
+        </member>
+        <member name="F:AeSensorData.AeRisingNumFieldNumber">
+            <summary>Field number for the "ae_rising_num" field.</summary>
+        </member>
+        <member name="P:AeSensorData.AeRisingNum">
+            <summary>
+            上升计数
+            </summary>
+        </member>
+        <member name="F:AeSensorData.AeRisingTimeFieldNumber">
+            <summary>Field number for the "ae_rising_time" field.</summary>
+        </member>
+        <member name="P:AeSensorData.AeRisingTime">
+            <summary>
+            上升时间
+            </summary>
+        </member>
+        <member name="F:AeSensorData.AeDurningTimeFieldNumber">
+            <summary>Field number for the "ae_durning_time" field.</summary>
+        </member>
+        <member name="P:AeSensorData.AeDurningTime">
+            <summary>
+            持续时间
+            </summary>
+        </member>
+        <member name="F:AeSensorData.AeArrivingSecFieldNumber">
+            <summary>Field number for the "ae_arriving_sec" field.</summary>
+        </member>
+        <member name="P:AeSensorData.AeArrivingSec">
+            <summary>
+            到达时间秒数
+            </summary>
+        </member>
+        <member name="F:AeSensorData.AeArrivingNsFieldNumber">
+            <summary>Field number for the "ae_arriving_ns" field.</summary>
+        </member>
+        <member name="P:AeSensorData.AeArrivingNs">
+            <summary>
+            到达时间纳秒数
+            </summary>
+        </member>
+        <member name="F:AeSensorData.AeFrameNumFieldNumber">
+            <summary>Field number for the "ae_frame_num" field.</summary>
+        </member>
+        <member name="P:AeSensorData.AeFrameNum">
+            <summary>
+            数据帧序列号
+            </summary>
+        </member>
+        <member name="F:AeSensorData.AeWaveDataFieldNumber">
+            <summary>Field number for the "aeWaveData" field.</summary>
+        </member>
+        <member name="P:AeSensorData.AeWaveData">
+            <summary>
+            波形数据
+            </summary>
+        </member>
+        <member name="T:AeSensorData.MsgOneofCase">
+            <summary>Enum of possible cases for the "msg" oneof.</summary>
+        </member>
+        <member name="F:AeMeasureConfig.AeThresholdFieldNumber">
+            <summary>Field number for the "ae_threshold" field.</summary>
+        </member>
+        <member name="P:AeMeasureConfig.AeThreshold">
+            <summary>
+            门限
+            </summary>
+        </member>
+        <member name="F:AeMeasureConfig.AeMeasureSpeedFieldNumber">
+            <summary>Field number for the "ae_measure_speed" field.</summary>
+        </member>
+        <member name="P:AeMeasureConfig.AeMeasureSpeed">
+            <summary>
+            采集速率
+            </summary>
+        </member>
+        <member name="F:AeMeasureConfig.AeMeasureModeFieldNumber">
+            <summary>Field number for the "ae_measure_mode" field.</summary>
+        </member>
+        <member name="P:AeMeasureConfig.AeMeasureMode">
+            <summary>
+            采集模式
+            </summary>
+        </member>
+        <member name="F:AeMeasureConfig.AeEetFieldNumber">
+            <summary>Field number for the "ae_eet" field.</summary>
+        </member>
+        <member name="P:AeMeasureConfig.AeEet">
+            <summary>
+            波形截止时间
+            </summary>
+        </member>
+        <member name="F:AeMeasureConfig.AeHdtFieldNumber">
+            <summary>Field number for the "ae_hdt" field.</summary>
+        </member>
+        <member name="P:AeMeasureConfig.AeHdt">
+            <summary>
+            波形定义时间
+            </summary>
+        </member>
+        <member name="F:AeMeasureConfig.AeHltFieldNumber">
+            <summary>Field number for the "ae_hlt" field.</summary>
+        </member>
+        <member name="P:AeMeasureConfig.AeHlt">
+            <summary>
+            波形闭锁时间
+            </summary>
+        </member>
+        <member name="F:AeMeasureConfig.AeMeasureLengthFieldNumber">
+            <summary>Field number for the "ae_measure_length" field.</summary>
+        </member>
+        <member name="P:AeMeasureConfig.AeMeasureLength">
+            <summary>
+            采样长度
+            </summary>
+        </member>
+        <member name="F:AeMeasureConfig.AeMeasureTimesFieldNumber">
+            <summary>Field number for the "ae_measure_times" field.</summary>
+        </member>
+        <member name="P:AeMeasureConfig.AeMeasureTimes">
+            <summary>
+            采样次数
+            </summary>
+        </member>
+        <member name="F:AeMeasureConfig.AeMeasureIntervalFieldNumber">
+            <summary>Field number for the "ae_measure_interval" field.</summary>
+        </member>
+        <member name="P:AeMeasureConfig.AeMeasureInterval">
+            <summary>
+            采样间隔
+            </summary>
+        </member>
+        <member name="F:AeMeasureConfig.AeParaEnableFieldNumber">
+            <summary>Field number for the "ae_para_enable" field.</summary>
+        </member>
+        <member name="P:AeMeasureConfig.AeParaEnable">
+            <summary>
+            参数发送使能
+            </summary>
+        </member>
+        <member name="F:AeMeasureConfig.AeWaveEnableFieldNumber">
+            <summary>Field number for the "ae_wave_enable" field.</summary>
+        </member>
+        <member name="P:AeMeasureConfig.AeWaveEnable">
+            <summary>
+            波形发送使能
+            </summary>
+        </member>
+        <member name="F:AeMeasureConfig.AeSystemTimeFieldNumber">
+            <summary>Field number for the "ae_system_time" field.</summary>
+        </member>
+        <member name="P:AeMeasureConfig.AeSystemTime">
+            <summary>
+            系统时间
+            </summary>
+        </member>
+        <member name="F:AeMeasureConfig.AeMeasureStateFieldNumber">
+            <summary>Field number for the "ae_measure_state" field.</summary>
+        </member>
+        <member name="P:AeMeasureConfig.AeMeasureState">
+            <summary>
+            采集状态
+            </summary>
+        </member>
+        <member name="F:AeSensorLevelData.AeLevelDataTypeFieldNumber">
+            <summary>Field number for the "ae_level_data_type" field.</summary>
+        </member>
+        <member name="P:AeSensorLevelData.AeLevelDataType">
+            <summary>
+            评级数据类型 1:强度报警输出 2:统计数据输出
+            </summary>
+        </member>
+        <member name="F:AeSensorLevelData.AeLevelStrengthFieldNumber">
+            <summary>Field number for the "ae_level_strength" field.</summary>
+        </member>
+        <member name="P:AeSensorLevelData.AeLevelStrength">
+            <summary>
+            强度等级
+            </summary>
+        </member>
+        <member name="F:AeSensorLevelData.AeLevelActivityFieldNumber">
+            <summary>Field number for the "ae_level_activity" field.</summary>
+        </member>
+        <member name="P:AeSensorLevelData.AeLevelActivity">
+            <summary>
+            活度等级
+            </summary>
+        </member>
+        <member name="F:AeSensorLevelData.AeLevelSynthesisFieldNumber">
+            <summary>Field number for the "ae_level_synthesis" field.</summary>
+        </member>
+        <member name="P:AeSensorLevelData.AeLevelSynthesis">
+            <summary>
+            综合等级
+            </summary>
+        </member>
+        <member name="F:AeSensorLevelData.AeLevelStrengthDataFieldNumber">
+            <summary>Field number for the "ae_level_strength_data" field.</summary>
+        </member>
+        <member name="P:AeSensorLevelData.AeLevelStrengthData">
+            <summary>
+            强度数据
+            </summary>
+        </member>
+        <member name="F:AeSensorLevelData.AeLevelActivityDataFieldNumber">
+            <summary>Field number for the "ae_level_activity_data" field.</summary>
+        </member>
+        <member name="P:AeSensorLevelData.AeLevelActivityData">
+            <summary>
+            活度数据
+            </summary>
+        </member>
+        <member name="F:AeSensorLevelData.AeLevelReportCalTimeFieldNumber">
+            <summary>Field number for the "ae_level_report_cal_time" field.</summary>
+        </member>
+        <member name="P:AeSensorLevelData.AeLevelReportCalTime">
+            <summary>
+            评级统计时间
+            </summary>
+        </member>
+        <member name="F:AeSensorLevelData.AeLevelReportEndTimeFieldNumber">
+            <summary>Field number for the "ae_level_report_end_time" field.</summary>
+        </member>
+        <member name="P:AeSensorLevelData.AeLevelReportEndTime">
+            <summary>
+            评级统计结束时间
+            </summary>
+        </member>
+        <member name="F:SystemFwUpdate.UpdateStateFieldNumber">
+            <summary>Field number for the "update_state" field.</summary>
+        </member>
+        <member name="P:SystemFwUpdate.UpdateState">
+            <summary>
+            升级状态 0:未知 1:服务器下发升级命令 2:设备升级中 3:升级成功，设备即将重新启动 4:升级失败
+            </summary>
+        </member>
+        <member name="F:SystemFwUpdate.UpdateFwPathFieldNumber">
+            <summary>Field number for the "update_fw_path" field.</summary>
+        </member>
+        <member name="P:SystemFwUpdate.UpdateFwPath">
+            <summary>
+            固件路径
+            </summary>
+        </member>
+        <member name="F:SystemFwUpdate.UpdateFwMd5SumFieldNumber">
+            <summary>Field number for the "update_fw_md5sum" field.</summary>
+        </member>
+        <member name="P:SystemFwUpdate.UpdateFwMd5Sum">
+            <summary>
+            固件MD5值
+            </summary>
+        </member>
+        <member name="F:SystemFwUpdate.UpdatePasswordFieldNumber">
+            <summary>Field number for the "update_password" field.</summary>
+        </member>
+        <member name="P:SystemFwUpdate.UpdatePassword">
+            <summary>
+            升级密码
+            </summary>
+        </member>
+        <member name="F:SystemFwUpdate.UpdateErrorReasonFieldNumber">
+            <summary>Field number for the "update_error_reason" field.</summary>
+        </member>
+        <member name="P:SystemFwUpdate.UpdateErrorReason">
+            <summary>
+            升级失败理由
+            </summary>
+        </member>
+        <member name="F:IotDeviceState.CmdFieldNumber">
+            <summary>Field number for the "cmd" field.</summary>
+        </member>
+        <member name="P:IotDeviceState.Cmd">
+            <summary>
+            0: 获取状态 1: 启动传输 2: 停止传输 3: 反馈状态
+            </summary>
+        </member>
+        <member name="F:IotDeviceState.LoraCompleteFieldNumber">
+            <summary>Field number for the "lora_complete" field.</summary>
+        </member>
+        <member name="P:IotDeviceState.LoraComplete">
+            <summary>
+            lora专用，反馈lora已发送完成
+            </summary>
+        </member>
+        <member name="F:IotDeviceState.ParaPackageCountFieldNumber">
+            <summary>Field number for the "para_package_count" field.</summary>
+        </member>
+        <member name="P:IotDeviceState.ParaPackageCount">
+            <summary>
+            IOT参数数据包数量
+            </summary>
+        </member>
+        <member name="F:IotDeviceState.WavePackageCountFieldNumber">
+            <summary>Field number for the "wave_package_count" field.</summary>
+        </member>
+        <member name="P:IotDeviceState.WavePackageCount">
+            <summary>
+            IOT波形数据包数量
+            </summary>
+        </member>
+        <member name="F:IotDeviceState.LevelPackageCountFieldNumber">
+            <summary>Field number for the "level_package_count" field.</summary>
+        </member>
+        <member name="P:IotDeviceState.LevelPackageCount">
+            <summary>
+            IOT评级数据包数量
+            </summary>
+        </member>
+    </members>
+</doc>

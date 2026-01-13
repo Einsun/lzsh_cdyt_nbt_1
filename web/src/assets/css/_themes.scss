@@ -1,0 +1,175 @@
+$themes: (
+  light: (
+    //字体
+    font_color1: #080827,
+    font_color2: #676DFF,
+    font_color3: rgb(19,19,52,0.4),
+    font_color_white: #ffffff,
+    font_color_page: #242A43,
+    font_color4: rgb(19,19,52,0.4),
+    //font_color_search: #131334,
+    spanStyle1:#FE4850,
+    spanStyle2:#F7B500,
+    spanStyle3:#FFE29D,
+
+    background1: (linear-gradient(45deg, RGBA(245, 247, 251, 1) 11px, #238ede 0, #238ede 12px, transparent 0) 0 100%, linear-gradient(135deg, RGBA(245, 247, 251, 1) 11px, #238ede 0, #dddd 12px, transparent 0) 0 0) no-repeat,
+    background2: (linear-gradient(-45deg, RGBA(245, 247, 251, 1) 11px, #238ede 0, #238ede 12px, transparent 0) 100% 100%, linear-gradient(-135deg, RGBA(245, 247, 251, 1) 11px, #238ede 0, #238ede 12px, transparent 0) 100% 0) no-repeat,
+    background-position-x:-4px,
+    background-position-x2:4px,
+    background-repeat:no-repeat,
+    background-report: rgba(13, 13, 36, 0.7),
+    background-report1: #ffffff,
+    //背景
+    background_color1: #F5F7FB,
+    background_color_table: #ffffff,
+    background_color_table_hover: #ffffff,
+    background_color_input_hover: #ffffff,
+    background_color_chart:rgba(255,255,255,1),
+    background_color2:#F7F8FA,
+    background_color_select:#ffffff,
+
+    background_color_spanColor1:#F5ECEF,
+    background_color_spanColor2:#F5F3EE,
+    background_color_spanColor3:#fffce0,
+
+    border-right: 1px solid rgba(179,189,209,.15),
+    //边框
+    border_color1: #3d414a,
+    border-bottom:1px solid #ffffff,
+    border-bottom2:1px solid #ffffff,
+    border_shade: none,
+    border_color4: none,
+    //dialog
+    background_color_dialog: #F5F7FB,
+    background_color_dialog_content: rgba(179,189,209,0.2),
+    background_color_content: #ffffff,
+    background_color_task: #ffffff,
+  ),
+
+  dark: (
+    //字体
+    font_color1: #F5F7FB,
+    font_color2: #ffffff,
+    font_color3: #676DFF,
+    font_color4: #ffffff,
+    font_color_white: #ffffff,
+    font_color_search: #ffffff,
+    font_color_page: #ffffff,
+    font_color_page_act:#ffffff,
+    spanStyle1:#ffffff,
+    spanStyle2:#ffffff,
+    spanStyle3:#ffffff,
+
+    background1: (linear-gradient(45deg, #011735 11px, #238ede 0, #238ede 12px, transparent 0) 0 100%, linear-gradient(135deg, #011735 11px, #238ede 0, #238ede 12px, transparent 0) 0 0) no-repeat,
+    background2: (linear-gradient(-45deg, #011735 11px, #238ede 0, #238ede 12px, transparent 0) 100% 100%, linear-gradient(-135deg, #011735 11px, #238ede 0, #238ede 12px, transparent 0) 100% 0) no-repeat,
+    background-position-x:-4px,
+    background-position-x2:4px,
+    background-repeat:no-repeat,
+    background-report: linear-gradient(180deg, rgba(47, 47, 115, 0.8) 0%, #15153F 100%),
+    background-report1: linear-gradient(180deg, rgba(47, 47, 115, 0.8) 0%, #15153F 100%),
+    //背景
+    background_color1: #080827,
+    background_color_table: #B3BDD1,
+    background_color_table_hover: #191A38,
+    background_color_input_hover: rgb(179,189,209,0.2),
+    background_color_chart:#131334,
+    background_color2:#131334,
+    background_color_spanColor1:#131334,
+    background_color_spanColor2:#131334,
+    background_color_spanColor3:#131334,
+    background_color_search:rgb(179,189,209,0.2),
+    background_color_select:#131334,
+
+    border-right: 1px solid #F5F7FB,
+    //边框
+    border_color1: #3d414a,
+    border-bottom:1px solid #191A38,
+    border-bottom2:1px solid #191A38,
+    border_shade: 1px solid rgba(103, 109, 255, 0.5),
+    border_color4: #3d414a,
+
+    //dialog
+    background_color_dialog: linear-gradient(180deg, rgba(47, 47, 115, 0.94) 0%, #15153F 100%),
+    background_color_dialog_content: rgba(5,5,26,0.3),
+    background_color_content: rgba(93,67,255,0.5),
+    background_color_task: rgb(93,67,255,0.5),
+  )
+);
+
+//遍历主题map
+@mixin themeify {
+  @each $theme-name, $theme-map in $themes {
+    //!global 把局部变量强升为全局变量
+    $theme-map: $theme-map !global;
+    //判断html的data-theme的属性值  #{}是sass的插值表达式
+    //& sass嵌套里的父容器标识   @content是混合器插槽，像vue的slot
+    [data-theme="#{$theme-name}"] & {
+      @content;
+    }
+  }
+}
+
+//声明一个根据Key获取颜色的function
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
+
+//获取背景颜色
+@mixin background_color($color) {
+  @include themeify {
+    background-color: themed($color)!important;
+  }
+}
+
+@mixin background-position-x($color) {
+  @include themeify {
+    background-position-x: themed($color)!important;
+  }
+}
+
+@mixin background($color) {
+  @include themeify {
+    background: themed($color);
+  }
+}
+
+@mixin background-repeat($color) {
+  @include themeify {
+    background-repeat: themed($color);
+  }
+}
+
+//获取字体颜色
+@mixin font_color($color) {
+  @include themeify {
+    color: themed($color)!important;
+  }
+}
+
+//获取边框颜色
+@mixin border_color($color) {
+  @include themeify {
+    border-color: themed($color)!important;
+  }
+}
+
+//获取边框颜色
+@mixin border-bottom($color) {
+  @include themeify {
+    border-bottom: themed($color)!important;
+  }
+}
+
+//获取背景颜色
+@mixin background_color_dialog($color) {
+  @include themeify {
+    background: themed($color)!important;
+  }
+}
+
+//获取边框颜色
+@mixin border($color) {
+  @include themeify {
+    border: themed($color)!important;
+  }
+}

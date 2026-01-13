@@ -1,0 +1,8 @@
+2024-07-23 16:03:41,086 [.NET TP Worker] INFO  NBWebApp.Utils.TCPService.<StartAsync>b__6_0 - 3998151704576-3998151704576
+2024-07-23 17:33:29,249 [.NET TP Worker] INFO  NBWebApp.Utils.TCPService.<StartAsync>b__6_0 - 3998257876992-3998257876992
+2024-07-23 17:33:29,994 [.NET TP Worker] INFO  NBWebApp.Controllers.UserInfoController.Login - admin-123456
+2024-07-23 17:37:27,085 [.NET TP Worker] INFO  NBWebApp.Controllers.UserInfoController.Login - admin-123456
+2024-07-23 17:40:52,202 [.NET TP Worker] INFO  NBWebApp.Controllers.UserInfoController.Login - admin-123456
+2024-07-23 17:49:36,664 [.NET TP Worker] INFO  NBWebApp.Controllers.UserInfoController.Login - admin-123456
+2024-07-23 17:51:15,808 [.NET TP Worker] INFO  NBWebApp.Controllers.UserInfoController.Login - admin-123456
+2024-07-23 17:54:28,184 [.NET TP Worker] INFO  NBWebApp.Controllers.UserInfoController.Login - admin-123456

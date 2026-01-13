@@ -1,0 +1,23 @@
+
+Date：2024-07-23 15:59:12.053
+LogLevel：Information
+Message：server=127.0.0.1;user=root;password=123456;database=nbdatanew-106.12.210.67-1883-C:\Users\Administrator\Downloads\publish\aedata
+----------------------------------------------------------------------------------------------------
+Date：2024-07-23 16:07:16.631
+LogLevel：Information
+Message：server=127.0.0.1;user=root;password=123456;database=nbdatanew-106.12.210.67-1883-C:\Users\Administrator\Downloads\publish\aedata
+----------------------------------------------------------------------------------------------------
+Date：2024-07-23 16:07:37.699
+LogLevel：Error
+Message：The operation has timed out.
+MQTTnet.Exceptions.MqttCommunicationTimedOutException: The operation has timed out.
+   at MQTTnet.Implementations.CrossPlatformSocket.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at MQTTnet.Implementations.MqttTcpChannel.ConnectAsync(CancellationToken cancellationToken)
+   at MQTTnet.Adapter.MqttChannelAdapter.<>c__DisplayClass30_0.<<ConnectAsync>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at MQTTnet.Adapter.MqttChannelAdapter.ConnectAsync(CancellationToken cancellationToken)
+   at MQTTnet.Client.MqttClient.ConnectInternal(IMqttChannelAdapter channelAdapter, CancellationToken cancellationToken)
+   at MQTTnet.Client.MqttClient.ConnectAsync(MqttClientOptions options, CancellationToken cancellationToken)
+   at MQTTnet.Client.MqttClient.ConnectAsync(MqttClientOptions options, CancellationToken cancellationToken)
+   at AeDataService.MqttService.StartMqtt() in D:\csharp\nbtedu\AeDataService\MqttService.cs:line 113
+----------------------------------------------------------------------------------------------------

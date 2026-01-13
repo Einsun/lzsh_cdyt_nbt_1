@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="18px" viewBox="0 0 16 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55 (78076) - https://sketchapp.com -->
+    <title>icon_tittle</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#2CBAEA" offset="0%"></stop>
+            <stop stop-color="#143651" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#2CBAEA" offset="0%"></stop>
+            <stop stop-color="#143651" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dashboard" transform="translate(-54.000000, -136.000000)">
+            <g id="编组-9" transform="translate(30.000000, 113.000000)">
+                <g id="编组-5" transform="translate(14.000000, 15.000000)">
+                    <g id="编组-6" transform="translate(10.000000, 8.000000)">
+                        <path d="M2,5 L2,5 C3.1045695,5 4,5.8954305 4,7 L4,18 L0,18 L0,7 C-1.3527075e-16,5.8954305 0.8954305,5 2,5 Z" id="矩形" fill="url(#linearGradient-1)"></path>
+                        <path d="M8,0 L8,0 C9.1045695,-2.02906125e-16 10,0.8954305 10,2 L10,18 L6,18 L6,2 C6,0.8954305 6.8954305,2.02906125e-16 8,0 Z" id="矩形备份-33" fill="url(#linearGradient-2)" transform="translate(8.000000, 9.000000) scale(1, -1) translate(-8.000000, -9.000000) "></path>
+                        <path d="M14,5 L14,5 C15.1045695,5 16,5.8954305 16,7 L16,18 L12,18 L12,7 C12,5.8954305 12.8954305,5 14,5 Z" id="矩形备份-32" fill="url(#linearGradient-1)"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

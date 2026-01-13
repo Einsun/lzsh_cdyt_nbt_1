@@ -1,0 +1,55 @@
+$th-font-color: rgba(255,255,255,1);
+$th-font-size: 14px;
+$th-font-weight: 500;
+
+$td-font-color:rgba(255,255,255,.8);
+$td-font-size: 14px;
+$td-font-weight: 500;
+
+$table-row-background-color: rgba(63,190,202,0.06);
+$table-row-striped-background-color: rgba(63,190,202,0.15);
+
+.table-primary{
+  width: 100%;
+  max-width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  thead th{
+    font-size:$th-font-size;
+    font-weight:$th-font-weight;
+    color:$th-font-color;
+  }
+  tbody td{
+    font-size:$td-font-size;
+    font-weight:$td-font-weight;
+    color:$td-font-color;
+  }
+  .table-row,tr{
+    background: rgba(255,255,255,0);
+    height: 40px;
+    td{
+      background: $table-row-background-color;
+      text-align: center;
+      //opacity: 0.8;
+    }
+    th{
+      background: $table-row-striped-background-color;
+      text-align: center;
+    }
+  }
+  .table-row-striped{
+    background: rgba(255,255,255,0);
+    td,th{
+      background: $table-row-striped-background-color;
+      text-align: center;
+    }
+  }
+}
+.table-primary-striped tr{
+  background: rgba(255,255,255,0);
+  td,th{
+    background: $table-row-striped-background-color;
+    text-align: center;
+  }
+}
+

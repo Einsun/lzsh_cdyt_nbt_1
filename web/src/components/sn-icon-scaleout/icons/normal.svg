@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55 (78076) - https://sketchapp.com -->
+    <title>icon_normal</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#69EBF9" offset="0%"></stop>
+            <stop stop-color="#38D3F0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dashboard" transform="translate(-261.000000, -262.000000)" fill="url(#linearGradient-1)" fill-rule="nonzero">
+            <g id="编组-9" transform="translate(30.000000, 113.000000)">
+                <g id="编组-8备份-2" transform="translate(231.000000, 88.000000)">
+                    <g id="tongji" transform="translate(0.000000, 61.000000)">
+                        <path d="M13.9210049,12.3870968 L12.9608419,10.0473118 L12.9608419,6.70967742 C12.9608419,4.50752688 11.6486192,2.51182796 9.76029874,1.72043011 C9.69628788,0.756989247 8.92815752,0 8,0 C7.07184248,0 6.33571755,0.756989247 6.23970126,1.72043011 C4.31937536,2.51182796 3.03915809,4.50752688 3.03915809,6.70967742 L3.03915809,10.0473118 L2.07899514,12.3870968 C1.95097341,12.6967742 1.98297885,13.0408602 2.143006,13.316129 C2.30303316,13.5913978 2.59108205,13.7634409 2.91113636,13.7634409 L13.0888636,13.7634409 C13.408918,13.7634409 13.6969668,13.5913978 13.856994,13.316129 C14.0170212,13.0408602 14.0490266,12.6623656 13.9210049,12.3870968 Z M8,16 C8.89615209,16 9.60027158,15.2430108 9.60027158,14.2795699 L6.39972842,14.2795699 C6.39972842,15.2430108 7.10384791,16 8,16 Z" id="形状"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

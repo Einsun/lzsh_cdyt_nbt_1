@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option java_package = "com.qc.sensormessages";
+option go_package = ".;QcMessages";
+
+
+package QcMessages;
+
+import "QcSensorMessages/QcSensorMessages.proto";
+
+message SensorMessage {
+  string packet_name = 1;
+  string node_id = 2;
+  string gateway_id = 3;
+  uint32 unix_time = 4;
+  int32 microsecond = 5;
+  string err_comment = 6;
+  string ver = 7;
+
+  oneof msg {
+      AeSensorData aeSensorData = 1001;  // 声发射数据
+      AeMeasureConfig aeMeasureConfig = 1002; // 声发射采集配置
+      AeLevelConfig aeLevelConfig = 1003; // 声发射评级配置
+      AeTimingConfig aeTimingConfig = 1004; // 声发射定时配置
+      AeSensorLevelData aeSensorLevelData = 1005; // 声发射评级数据
+      SystemFwUpdate systemFwUpdate = 1006; // 系统固件升级
+      IotDeviceState iotDeviceState = 1007; // IOT设备状态
+  }
+}

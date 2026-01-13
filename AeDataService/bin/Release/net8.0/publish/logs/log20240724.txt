@@ -1,0 +1,24 @@
+
+Date：2024-07-24 11:29:31.004
+LogLevel：Information
+Message：server=127.0.0.1;user=root;password=123456;database=nbdatanew-106.12.210.67-1883-C:\Users\Administrator\Downloads\publish\aedata
+----------------------------------------------------------------------------------------------------
+Date：2024-07-24 11:29:31.961
+LogLevel：Error
+Message：Error while connecting with host '106.12.210.67:1883'.
+MQTTnet.Exceptions.MqttCommunicationException: Error while connecting with host '106.12.210.67:1883'.
+ ---> System.Net.Sockets.SocketException (10051): 向一个无法连接的网络尝试了一个套接字操作。
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at MQTTnet.Implementations.CrossPlatformSocket.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at MQTTnet.Implementations.CrossPlatformSocket.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at MQTTnet.Implementations.MqttTcpChannel.ConnectAsync(CancellationToken cancellationToken)
+   at MQTTnet.Adapter.MqttChannelAdapter.<>c__DisplayClass30_0.<<ConnectAsync>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at MQTTnet.Adapter.MqttChannelAdapter.ConnectAsync(CancellationToken cancellationToken)
+   at MQTTnet.Client.MqttClient.ConnectInternal(IMqttChannelAdapter channelAdapter, CancellationToken cancellationToken)
+   at MQTTnet.Client.MqttClient.ConnectAsync(MqttClientOptions options, CancellationToken cancellationToken)
+   at MQTTnet.Client.MqttClient.ConnectAsync(MqttClientOptions options, CancellationToken cancellationToken)
+   at AeDataService.MqttService.StartMqtt() in D:\csharp\nbtedu\AeDataService\MqttService.cs:line 113
+----------------------------------------------------------------------------------------------------
